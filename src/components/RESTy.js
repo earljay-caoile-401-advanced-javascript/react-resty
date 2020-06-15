@@ -1,6 +1,6 @@
-import React from "react";
-import Form from "./Form";
-import Results from "./Results";
+import React from 'react';
+import Form from './Form';
+import Results from './Results';
 
 /**
  * Parent component that passes props to Form and Results components and renders them
@@ -18,9 +18,9 @@ class RESTy extends React.Component {
       headers: {},
       count: 0,
       results: [],
-      url: "",
-      reqType: "GET",
-      output: {}
+      url: '',
+      reqType: 'GET',
+      output: {},
     };
   }
 
@@ -36,8 +36,8 @@ class RESTy extends React.Component {
         let res = await fetch(baseURL, {
           method: this.state.reqType,
           headers: {
-            Accept: "application/json"
-          }
+            Accept: 'application/json',
+          },
         });
 
         const jsonRes = await res.json();
@@ -50,7 +50,7 @@ class RESTy extends React.Component {
         await this.setState({
           results: jsonRes.results || jsonRes,
           count: jsonRes.count || 1,
-          headers: newHeaders
+          headers: newHeaders,
         });
 
         await this.setState({
@@ -59,13 +59,13 @@ class RESTy extends React.Component {
             results: this.state.results,
             count: this.state.count,
             url: this.state.url,
-            reqType: this.state.reqType
-          }
+            reqType: this.state.reqType,
+          },
         });
       } catch (e) {
-        console.error("Error: could not perform operation", e.message);
+        console.error('Error: could not perform operation', e.message);
         this.setState({
-          output: { error: "could not perform operation!" }
+          output: { error: 'could not perform operation!' },
         });
       }
     }

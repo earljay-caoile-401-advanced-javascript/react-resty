@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 /**
  * Main function that returns the JSX for the Form component
@@ -21,7 +21,7 @@ function Form(props) {
    * @return  {void}
    */
   function handleSubmit(e) {
-    if (e.key === "Enter" || (e.target && e.target.value === "Submit")) {
+    if (e.key === 'Enter' || (e.target && e.target.value === 'Submit')) {
       props.onKeyPress();
     }
   }
@@ -32,28 +32,33 @@ function Form(props) {
    * @return  {void}
    */
   function handleBtnClick(e) {
-    const prevSelected = document.querySelector(".selected-btn");
-    prevSelected.classList.remove("selected-btn");
-    e.target.classList.add("selected-btn");
+    const prevSelected = document.querySelector('.selected-btn');
+    prevSelected.classList.remove('selected-btn');
+    e.target.classList.add('selected-btn');
     props.onClick(e.target.value);
   }
 
   return (
     <>
       <div className="req-type">
-        <button value="GET" className="selected-btn" onClick={handleBtnClick}>
+        <button
+          value="GET"
+          className="selected-btn"
+          id="get-btn"
+          onClick={handleBtnClick}
+        >
           GET
         </button>
-        <button value="POST" onClick={handleBtnClick}>
+        <button value="POST" id="post-btn" onClick={handleBtnClick}>
           POST
         </button>
-        <button value="PUT" onClick={handleBtnClick}>
+        <button value="PUT" id="put-btn" onClick={handleBtnClick}>
           PUT
         </button>
-        <button value="PATCH" onClick={handleBtnClick}>
+        <button value="PATCH" id="patch-btn" onClick={handleBtnClick}>
           PATCH
         </button>
-        <button value="DELETE" onClick={handleBtnClick}>
+        <button value="DELETE" id="delete-btn" onClick={handleBtnClick}>
           DELETE
         </button>
       </div>
@@ -66,7 +71,7 @@ function Form(props) {
           onChange={handleChange}
           onKeyPress={handleSubmit}
         />
-        <button value="Submit" onClick={handleSubmit}>
+        <button value="Submit" id="submit-btn" onClick={handleSubmit}>
           Submit
         </button>
       </div>

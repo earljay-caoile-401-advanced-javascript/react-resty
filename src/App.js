@@ -1,6 +1,6 @@
-import React from "react";
-import RESTy from "./components/RESTy";
-import "./styles.scss";
+import React from 'react';
+import RESTy from './components/RESTy';
+import './styles.scss';
 
 /**
  * Parent component that returns the header, core content, and footer

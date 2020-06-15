@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 /**
  * Main function that returns the JSX for the results component. Calls a helper function to do all the real magic
@@ -26,24 +26,24 @@ function objHandler(obj, level) {
   const rootLevel = level++;
 
   if (obj) {
-    Object.keys(obj).forEach(key => {
+    Object.keys(obj).forEach((key) => {
       const val = obj[key];
       const str = `"${key}": ${val}`;
       resToRender.push(
         Array.isArray(val) ? (
           <div key={key + level}>
-            <div style={{ textIndent: 20 * rootLevel + "px" }}>"{key}": [</div>
+            <div style={{ textIndent: 20 * rootLevel + 'px' }}>"{key}": [</div>
             <div>{objHandler(val, level)} ]</div>
           </div>
-        ) : typeof val === "object" ? (
+        ) : typeof val === 'object' ? (
           <div key={key + level}>
-            <div style={{ textIndent: 20 * rootLevel + "px" }}>
-              "{key}": <>{"{"}</>
-              {objHandler(val, level)} <div>{"}"}</div>
+            <div style={{ textIndent: 20 * rootLevel + 'px' }}>
+              "{key}": <>{'{'}</>
+              {objHandler(val, level)} <div>{'}'}</div>
             </div>
           </div>
         ) : (
-          <div style={{ textIndent: 20 * rootLevel + "px" }} key={key + level}>
+          <div style={{ textIndent: 20 * rootLevel + 'px' }} key={key + level}>
             {str}
           </div>
         )
@@ -52,7 +52,7 @@ function objHandler(obj, level) {
   }
 
   return (
-    <div key={rootLevel + "rootdiv"}>
+    <div key={rootLevel + 'rootdiv'}>
       {resToRender.length ? resToRender : null}
     </div>
   );
