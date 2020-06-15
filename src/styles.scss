@@ -1,6 +1,7 @@
 @import 'base';
 
-.header, .footer {
+.header,
+.footer {
   text-align: center;
   color: white;
 }
@@ -38,7 +39,7 @@
   label {
     margin: auto $spacing / 2;
   }
-  
+
   input {
     @include setSpacing($spacing / 2, $spacing / 2);
   }
@@ -50,6 +51,16 @@
 
   button {
     @include setSpacing($spacing, $pxPad / 2 $pxPad);
+  }
+
+  @media only screen and (max-width: 675px) {
+    input.textbox {
+      width: 92.5%;
+    }
+
+    #submit-btn {
+      width: 95%;
+    }
   }
 }
 
