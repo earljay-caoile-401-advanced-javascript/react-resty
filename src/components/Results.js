@@ -52,7 +52,7 @@ function objHandler(obj, level) {
   }
 
   return (
-    <div key={rootLevel + 'rootdiv'}>
+    <div key={rootLevel + 'rootdiv'} className={'result-root-' + rootLevel}>
       {resToRender.length ? resToRender : null}
     </div>
   );
