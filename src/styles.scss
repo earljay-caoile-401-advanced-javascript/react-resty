@@ -21,7 +21,7 @@
   button {
     background-color: #004680;
     color: white;
-    @include setSpacing($spacing, $pxPad / 2 $pxPad);
+    @include setSpacing($spacing, $spacing $spacing * 2);
 
     &:hover {
       background-color: #3f6181;
@@ -68,4 +68,8 @@
   border-style: solid;
   min-height: 80vh;
   @include setSpacing($spacing / 2, $spacing);
+
+  * {
+    color: #030369;
+  }
 }
