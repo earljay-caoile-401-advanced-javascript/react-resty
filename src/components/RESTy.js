@@ -30,19 +30,20 @@ class RESTy extends React.Component {
    */
   async apiFetch() {
     let baseURL = this.state.url;
-
+    console.log('Did we make it to apiFetch?', baseURL);
     if (baseURL) {
       try {
+        console.log('beginning of try block');
         let res = await fetch(baseURL, {
           method: this.state.reqType,
           headers: {
             Accept: 'application/json',
           },
         });
-
+        console.log('Did we get a res?', res);
         const jsonRes = await res.json();
         const newHeaders = {};
-
+        console.log('did we get jsonRes?', jsonRes);
         for (let entry of res.headers.entries()) {
           newHeaders[entry[0]] = entry[1];
         }

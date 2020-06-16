@@ -21,6 +21,8 @@ function Form(props) {
    * @return  {void}
    */
   function handleSubmit(e) {
+    console.log('Are we getting in here?', e.target.value);
+    console.log('What is props.onKeyPress?', props.onKeyPress);
     if (e.key === 'Enter' || (e.target && e.target.value === 'Submit')) {
       props.onKeyPress();
     }
