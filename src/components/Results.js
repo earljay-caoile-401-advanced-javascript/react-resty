@@ -1,4 +1,5 @@
 import React from 'react';
+import LoadingSpinner from '../components/LoadingSpinner';
 
 /**
  * Main function that returns the JSX for the results component. Calls a helper function to do all the real magic
@@ -7,10 +8,14 @@ import React from 'react';
  */
 function Results(props) {
   const resContent =
-    props.output && Object.keys(props.output).length
+    props.output && Object.keys(props.output).length && !props.loading
       ? objHandler(props.output, 0)
       : null;
-  return <div className="res-border">{resContent}</div>;
+  return (
+    <div className="res-border">
+      {props.loading ? <LoadingSpinner /> : resContent}
+    </div>
+  );
 }
 
 /**

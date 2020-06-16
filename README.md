@@ -24,12 +24,15 @@ Lab 23 and then some for CF JS 401 Nights
 - [CSS borders](https://www.w3schools.com/css/css_border.asp)
 - [how to disable text selection highlighting](https://stackoverflow.com/questions/826782/how-to-disable-text-selection-highlighting)
 - [how to enable document.body in testing](https://stackoverflow.com/questions/43694975/jest-enzyme-using-mount-document-getelementbyid-returns-null-on-componen)
+- [display loading indicator in React](https://blog.stvmlbrn.com/2017/10/14/display-loading-indicator-in-react-during-ajax-requests.html)
+- [Font Awesome Spinner Icons](https://www.w3schools.com/icons/fontawesome_icons_spinner.asp)
 
 ### Documentation
 
 - [React JS Hello World](https://reactjs.org/docs/hello-world.html)
 - [SASS](https://sass-lang.com/)
 - [Enzyme (Set State)](https://enzymejs.github.io/enzyme/docs/api/ReactWrapper/setState.html)
+- [React Font Awesome](https://github.com/FortAwesome/react-fontawesome)
 
 ### Setup
 

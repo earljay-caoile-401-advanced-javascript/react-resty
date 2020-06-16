@@ -21,6 +21,7 @@ class RESTy extends React.Component {
       url: '',
       reqType: 'GET',
       output: {},
+      loading: false,
     };
   }
 
@@ -32,6 +33,10 @@ class RESTy extends React.Component {
     let baseURL = this.state.url;
     if (baseURL) {
       try {
+        await this.setState({
+          loading: true,
+        });
+
         let res = await fetch(baseURL, {
           method: this.state.reqType,
           headers: {
@@ -54,6 +59,7 @@ class RESTy extends React.Component {
         });
 
         await this.setState({
+          loading: false,
           output: {
             headers: this.state.headers,
             results: this.state.results,
@@ -65,6 +71,7 @@ class RESTy extends React.Component {
       } catch (e) {
         console.error('Error: could not perform operation', e.message);
         this.setState({
+          loading: false,
           output: { error: 'could not perform operation!' },
         });
       }
@@ -100,7 +107,11 @@ class RESTy extends React.Component {
           onKeyPress={this.apiFetch.bind(this)}
           onClick={this.updateReqType.bind(this)}
         />
-        <Results className="results" output={this.state.output} />
+        <Results
+          className="results"
+          output={this.state.output}
+          loading={this.state.loading}
+        />
       </>
     );
   }
