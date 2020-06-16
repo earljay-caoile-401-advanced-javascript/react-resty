@@ -30,10 +30,8 @@ class RESTy extends React.Component {
    */
   async apiFetch() {
     let baseURL = this.state.url;
-    console.log('Did we make it to apiFetch?', baseURL);
     if (baseURL) {
       try {
-        console.log('beginning of try block');
         let res = await fetch(baseURL, {
           method: this.state.reqType,
           headers: {
