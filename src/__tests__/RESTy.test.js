@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow, mount, render } from 'enzyme';
+import { mount } from 'enzyme';
 import RESTy from '../components/RESTy';
 
 describe('resty component', () => {
@@ -66,5 +66,29 @@ describe('resty component', () => {
     component.setState(mockedState);
     expect(component.find('div.result-root-0')).toHaveLength(1);
     expect(component.find('div.result-root-0').html()).toBeDefined();
+  });
+
+  it('can change reqType state on click', () => {
+    const component = mount(<RESTy />, { attachTo: document.body });
+    const selectedBtn = component.find('button.selected-btn');
+    const getBtn = component.find('button#get-btn');
+    const postBtn = component.find('button#post-btn');
+    expect(selectedBtn).toMatchObject(getBtn);
+
+    const mockPostObj = {
+      target: {
+        classList: {
+          add: (input) => {
+            mockPostObj.class = input;
+          },
+        },
+        value: 'POST',
+      },
+    };
+
+    postBtn.simulate('click', mockPostObj);
+    expect(component.find('button.selected-btn')).not.toMatchObject(getBtn);
+    expect(mockPostObj.class).toBe('selected-btn');
+    expect(component.state('reqType')).toBe('POST');
   });
 });
