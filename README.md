@@ -13,7 +13,7 @@ Lab 23 and then some for CF JS 401 Nights
 - [submission PR](https://github.com/earljay-caoile-401-advanced-javascript/react-resty/pull/1)
 - [GitHub actions](https://github.com/earljay-caoile-401-advanced-javascript/react-resty/actions)
 - [code sandbox](https://codesandbox.io/s/resty-vilrl)
-- [Netlify deployment](https://infallible-hugle-e84274.netlify.app)
+- [Netlify deployment](https://sharp-hodgkin-c1c76c.netlify.app)
 
 #### Resources
 
