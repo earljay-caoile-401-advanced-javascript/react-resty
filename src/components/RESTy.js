@@ -40,11 +40,12 @@ class RESTy extends React.Component {
             Accept: 'application/json',
           },
         });
-        console.log('Did we get a res?', res);
+
         const jsonRes = await res.json();
         const newHeaders = {};
-        console.log('did we get jsonRes?', jsonRes);
-        for (let entry of res.headers.entries()) {
+
+        /*eslint no-unused-vars: ["error", { "varsIgnorePattern": "entry" }]*/
+        for (const entry of res.headers.entries()) {
           newHeaders[entry[0]] = entry[1];
         }
 
