@@ -13,7 +13,7 @@ Lab 23 and then some for CF JS 401 Nights
 - [submission PR](https://github.com/earljay-caoile-401-advanced-javascript/react-resty/pull/1)
 - [GitHub actions](https://github.com/earljay-caoile-401-advanced-javascript/react-resty/actions)
 - [code sandbox](https://codesandbox.io/s/resty-vilrl)
-- [Netlify deployment](https://youthful-liskov-6b361a.netlify.app/)
+- [Netlify deployment](https://youthful-liskov-6b361a.netlify.app/) [![Netlify Status](https://api.netlify.com/api/v1/badges/f110229a-7ce3-4c1c-8d74-3f0140f7a68d/deploy-status)](https://app.netlify.com/sites/youthful-liskov-6b361a/deploys)
 
 #### Resources
 
@@ -36,7 +36,7 @@ Lab 23 and then some for CF JS 401 Nights
 - install node packages locally with `npm i` from the root directory in Terminal
 - start the server with `npm start`
 
-## Using the App
+### Using the App
 
 The display logic is designed to be able to work with any API. However, I have only verified that this app has worked with the following APIs:
 
