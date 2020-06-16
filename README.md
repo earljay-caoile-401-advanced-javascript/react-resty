@@ -22,17 +22,24 @@ Lab 23 and then some for CF JS 401 Nights
 - [vertical centering with flexbox](https://philipwalton.github.io/solved-by-flexbox/demos/vertical-centering/)
 - [CSS borders](https://www.w3schools.com/css/css_border.asp)
 - [how to disable text selection highlighting](https://stackoverflow.com/questions/826782/how-to-disable-text-selection-highlighting)
+- [how to enable document.body in testing](https://stackoverflow.com/questions/43694975/jest-enzyme-using-mount-document-getelementbyid-returns-null-on-componen)
 
 ### Documentation
 
 - [React JS Hello World](https://reactjs.org/docs/hello-world.html)
 - [SASS](https://sass-lang.com/)
+- [Enzyme (Set State)](https://enzymejs.github.io/enzyme/docs/api/ReactWrapper/setState.html)
 
 ### Setup
 
 - install node packages locally with `npm i` from the root directory in Terminal
 - start the server with `npm start`
 
+## Using the App
+The display logic is designed to be able to work with any API. However, I have only verified that this app has worked with the following APIs:
+- my own lab API: https://cf-js-401-api-server.herokuapp.com/api-docs
+- PokeAPI: https://pokeapi.co/
+
 ### UML
 
-![UML Image](lab-22-uml.png "uml diagram")
+![UML Image](lab-23-uml.png "uml diagram")
