@@ -40,6 +40,8 @@ The display logic is designed to be able to work with any API. However, I have o
 - my own lab API: https://cf-js-401-api-server.herokuapp.com/api-docs
 - PokeAPI: https://pokeapi.co/
 
+To make a GET API call, type or paste the API endpoint and hit `enter` or click the submit button to submit
+
 ### UML
 
 ![UML Image](lab-23-uml.png "uml diagram")
