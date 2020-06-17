@@ -83,7 +83,7 @@ class RESTy extends React.Component {
    * @return  {void}
    */
   async updateURL(val) {
-    await this.setState({ ...this.state, url: val });
+    await this.setState({ url: val });
   }
 
   /**
