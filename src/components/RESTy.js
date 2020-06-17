@@ -33,9 +33,10 @@ class RESTy extends React.Component {
     let baseURL = this.state.url;
     if (baseURL) {
       try {
-        await this.setState({
+        this.setState({
           loading: true,
         });
+
         let res;
         const reqType = this.state.reqType;
 
@@ -61,13 +62,13 @@ class RESTy extends React.Component {
             newHeaders[entry[0]] = entry[1];
           }
 
-          await this.setState({
+          this.setState({
             results: jsonRes.results || jsonRes,
             count: jsonRes.count || 1,
             headers: newHeaders,
           });
 
-          await this.setState({
+          this.setState({
             output: {
               headers: this.state.headers,
               results: this.state.results,
@@ -94,16 +95,16 @@ class RESTy extends React.Component {
    * helper function that updates url state so that it can be passed to the Form component as props
    * @return  {void}
    */
-  async updateURL(val) {
-    await this.setState({ url: val });
+  updateURL(val) {
+    this.setState({ url: val });
   }
 
   /**
    * helper function that updates reqType state so that it can be used as a paramter for submission
    * @return  {void}
    */
-  async updateReqType(val) {
-    await this.setState({ reqType: val });
+  updateReqType(val) {
+    this.setState({ reqType: val });
   }
 
   render() {

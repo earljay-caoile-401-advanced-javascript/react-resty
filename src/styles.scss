@@ -33,6 +33,10 @@
     border: 0.4em solid green;
     background-color: #3f6181;
   }
+
+  @media only screen and (max-width: 675px) {
+    text-align: center;
+  }
 }
 
 .form-input {
@@ -67,17 +71,16 @@
 .res-border {
   border-style: solid;
   min-height: 75vh;
-  @include setSpacing($spacing, auto);
-  padding-left: $spacing;
+  @include setSpacing($spacing, $spacing);
 
   * {
     color: #030369;
     overflow: auto;
-    max-height: 72.5vh;
   }
 
   pre {
     font-size: 14px;
+    height: 72.5vh;
   }
 
   .loading {
