@@ -12,3 +12,11 @@ $pxPad: 20px;
   margin: $marginProp;
   padding: $paddingProp;
 }
+
+@mixin setCompatibleProp($prop, $val) {
+  #{$prop}: $val;
+  -webkit-#{$prop}: $val;
+  -moz-#{$prop}: $val;
+  -ms-#{$prop}: $val;
+  -o-#{$prop}: $val;
+}
