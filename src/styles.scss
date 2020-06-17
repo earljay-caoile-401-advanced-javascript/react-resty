@@ -70,14 +70,18 @@
   @include setSpacing($spacing, auto);
   padding-left: $spacing;
 
-  pre {
+  * {
     color: #030369;
-    font-size: 14px;
     overflow: auto;
     max-height: 72.5vh;
   }
-}
 
-.loading {
-  font-size: 24px;
+  pre {
+    font-size: 14px;
+  }
+
+  .loading {
+    font-size: 24px;
+    padding: $spacing;
+  }
 }

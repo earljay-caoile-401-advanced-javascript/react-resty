@@ -12,7 +12,7 @@ function Form(props) {
    * @return  {void}
    */
   function handleChange(e) {
-    props.onChange(e.target.value, props.stateKey);
+    props.onChange(e.target.value);
   }
 
   /**
@@ -22,7 +22,7 @@ function Form(props) {
    */
   function handleSubmit(e) {
     if (e.key === 'Enter' || (e.target && e.target.value === 'Submit')) {
-      props.onKeyPress();
+      props.onSubmit();
     }
   }
 
