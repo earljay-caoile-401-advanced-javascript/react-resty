@@ -66,12 +66,14 @@
 
 .res-border {
   border-style: solid;
-  min-height: 80vh;
-  @include setSpacing($spacing / 2, $spacing);
+  min-height: 75vh;
+  @include setSpacing($spacing, $spacing);
 
-  * {
+  pre {
     color: #030369;
     font-size: 14px;
+    overflow: auto;
+    max-height: 72.5vh;
   }
 }
 
