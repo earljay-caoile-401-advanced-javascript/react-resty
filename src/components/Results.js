@@ -9,7 +9,9 @@ import LoadingSpinner from '../components/LoadingSpinner';
 function Results(props) {
   const resContent =
     props.output && Object.keys(props.output).length && !props.loading ? (
-      <pre>{JSON.stringify(props.output, null, 2)}</pre>
+      <pre className={props.output.error ? 'error' : 'normal-res'}>
+        {JSON.stringify(props.output, null, 2)}
+      </pre>
     ) : null;
 
   return (

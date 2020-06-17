@@ -20,6 +20,7 @@ class RESTy extends React.Component {
       results: [],
       url: '',
       reqType: 'GET',
+      reqBody: null,
       output: {},
       loading: false,
     };
@@ -37,21 +38,13 @@ class RESTy extends React.Component {
           loading: true,
         });
 
-        let res;
-        const reqType = this.state.reqType;
-
-        switch (reqType) {
-          case 'GET':
-            res = await fetch(baseURL, {
-              method: this.state.reqType,
-              headers: {
-                Accept: 'application/json',
-              },
-            });
-            break;
-          default:
-            break;
-        }
+        const res = await fetch(baseURL, {
+          method: this.state.reqType,
+          headers: {
+            Accept: 'application/json',
+          },
+          body: this.state.reqBody,
+        });
 
         if (res) {
           const jsonRes = await res.json();
@@ -79,12 +72,12 @@ class RESTy extends React.Component {
           });
         }
       } catch (e) {
-        console.error('Error: could not perform operation', e.message);
+        console.error('Error: could not perform operation.', e.message);
         this.setState({
-          output: { error: 'could not perform operation!' },
+          output: { error: 'could not perform operation', message: e.message },
         });
       } finally {
-        await this.setState({
+        this.setState({
           loading: false,
         });
       }

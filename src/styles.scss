@@ -70,7 +70,7 @@
 
 .res-border {
   border-style: solid;
-  min-height: 75vh;
+  min-height: 71vh;
   @include setSpacing($spacing, $spacing);
 
   * {
@@ -79,12 +79,16 @@
   }
 
   pre {
-    font-size: 14px;
+    font-size: 16px;
     height: 72.5vh;
   }
 
   .loading {
     font-size: 24px;
     padding: $spacing;
+  }
+
+  .error {
+    color: red;
   }
 }
