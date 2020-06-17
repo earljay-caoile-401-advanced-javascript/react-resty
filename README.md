@@ -1,4 +1,4 @@
-# Lab 23 — Props and State
+# Lab 24 — Routing and Component Composition
 
 ## React Web App Mimicking Postman
 
@@ -10,7 +10,7 @@ Lab 23 and then some for CF JS 401 Nights
 
 #### Submission Reqs
 
-- [submission PR](https://github.com/earljay-caoile-401-advanced-javascript/react-resty/pull/1)
+- [submission PR](https://github.com/earljay-caoile-401-advanced-javascript/react-resty/pull/2)
 - [GitHub actions](https://github.com/earljay-caoile-401-advanced-javascript/react-resty/actions)
 - [code sandbox](https://codesandbox.io/s/resty-vilrl)
 - [Netlify deployment](https://youthful-liskov-6b361a.netlify.app/) [![Netlify Status](https://api.netlify.com/api/v1/badges/f110229a-7ce3-4c1c-8d74-3f0140f7a68d/deploy-status)](https://app.netlify.com/sites/youthful-liskov-6b361a/deploys)
