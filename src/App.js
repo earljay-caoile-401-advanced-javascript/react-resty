@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import RESTy from './components/RESTy';
+import History from './components/History';
 import './styles.scss';
 
 /**
@@ -19,9 +20,8 @@ export default function App() {
     <BrowserRouter>
       <div className="App">
         <h1 className="header">RESTy</h1>
-        <Route path="/" exact={true}>
-          <RESTy />
-        </Route>
+        <Route exact path="/" component={RESTy} />
+        <Route path="/history" component={History} />
         <div className="footer">Created by Earl Jay Caoile</div>
       </div>
     </BrowserRouter>

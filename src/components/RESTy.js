@@ -102,7 +102,7 @@ class RESTy extends React.Component {
 
   render() {
     return (
-      <>
+      <div className="content">
         <Form
           className="form-url"
           label="URL"
@@ -118,7 +118,7 @@ class RESTy extends React.Component {
           output={this.state.output}
           loading={this.state.loading}
         />
-      </>
+      </div>
     );
   }
 }
