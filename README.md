@@ -33,6 +33,7 @@ Lab 23 and then some for CF JS 401 Nights
 - [SASS](https://sass-lang.com/)
 - [Enzyme (Set State)](https://enzymejs.github.io/enzyme/docs/api/ReactWrapper/setState.html)
 - [React Font Awesome](https://github.com/FortAwesome/react-fontawesome)
+- [JSON Stringify](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify)
 
 ### Setup
 

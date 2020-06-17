@@ -67,7 +67,8 @@
 .res-border {
   border-style: solid;
   min-height: 75vh;
-  @include setSpacing($spacing, $spacing);
+  @include setSpacing($spacing, auto);
+  padding-left: $spacing;
 
   pre {
     color: #030369;
