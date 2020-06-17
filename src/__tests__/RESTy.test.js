@@ -23,7 +23,7 @@ describe('resty component', () => {
 
   it('can display the data in the results component when state in RESTy is updated', () => {
     const component = mount(<RESTy />);
-    expect(component.find('div.result-root-0')).toHaveLength(0);
+    expect(component.find('pre')).toHaveLength(0);
 
     const mockedState = {
       headers: 'content-type: application/json; charset=utf-8,',
@@ -64,8 +64,8 @@ describe('resty component', () => {
     };
 
     component.setState(mockedState);
-    expect(component.find('div.result-root-0')).toHaveLength(1);
-    expect(component.find('div.result-root-0').html()).toBeDefined();
+    expect(component.find('pre')).toHaveLength(1);
+    expect(component.find('pre').html()).toBeDefined();
   });
 
   it('can change reqType state on click', () => {
