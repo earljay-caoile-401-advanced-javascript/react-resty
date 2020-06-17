@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
 import RESTy from './components/RESTy';
 import './styles.scss';
 
@@ -15,10 +16,14 @@ import './styles.scss';
  */
 export default function App() {
   return (
-    <div className="App">
-      <h1 className="header">RESTy</h1>
-      <RESTy />
-      <div className="footer">Created by Earl Jay Caoile</div>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <h1 className="header">RESTy</h1>
+        <Route path="/" exact={true}>
+          <RESTy />
+        </Route>
+        <div className="footer">Created by Earl Jay Caoile</div>
+      </div>
+    </BrowserRouter>
   );
 }

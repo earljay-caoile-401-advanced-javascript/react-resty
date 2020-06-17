@@ -15,7 +15,7 @@ function Results(props) {
     ) : null;
 
   return (
-    <div className="res-border">
+    <div className="results">
       {props.loading ? <LoadingSpinner /> : resContent}
     </div>
   );

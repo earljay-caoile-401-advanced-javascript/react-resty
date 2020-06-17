@@ -39,7 +39,7 @@ function Form(props) {
   }
 
   return (
-    <>
+    <div className="form">
       <div className="req-type">
         <button
           value="GET"
@@ -75,7 +75,7 @@ function Form(props) {
           Submit
         </button>
       </div>
-    </>
+    </div>
   );
 }
 

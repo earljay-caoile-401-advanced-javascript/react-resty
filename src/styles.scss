@@ -17,6 +17,15 @@
   background-color: #007a99;
 }
 
+.req-type,
+.form-input {
+  text-align: center;
+}
+
+.form {
+  margin: $spacing;
+}
+
 .req-type {
   button {
     background-color: #004680;
@@ -32,10 +41,6 @@
   .selected-btn {
     border: 0.4em solid green;
     background-color: #3f6181;
-  }
-
-  @media only screen and (max-width: 675px) {
-    text-align: center;
   }
 }
 
@@ -57,7 +62,7 @@
     @include setSpacing($spacing, $pxPad / 2 $pxPad);
   }
 
-  @media only screen and (max-width: 675px) {
+  @media only screen and (max-width: 700px) {
     input.textbox {
       width: 94%;
     }
@@ -68,9 +73,10 @@
   }
 }
 
-.res-border {
+.results {
   border-style: solid;
   min-height: 71vh;
+
   @include setSpacing($spacing, $spacing);
 
   * {
