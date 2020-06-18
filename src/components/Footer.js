@@ -14,7 +14,7 @@ import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
 class Footer extends React.Component {
   render() {
     return (
-      <div className="footer">
+      <footer>
         <p>Created by Earl Jay Caoile</p>
         <a href="https://github.com/ecaoile">
           <FontAwesomeIcon icon={faLinkedin} size="lg" />
@@ -22,7 +22,7 @@ class Footer extends React.Component {
         <a href="https://www.linkedin.com/in/earl-jay-caoile/">
           <FontAwesomeIcon icon={faGithub} size="lg" />
         </a>
-      </div>
+      </footer>
     );
   }
 }

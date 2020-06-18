@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import RESTy from './components/RESTy';
 import History from './components/History';
+import Header from './components/Header';
 import Footer from './components/Footer';
 import './styles.scss';
 
@@ -20,7 +21,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <h1 className="header">RESTy</h1>
+        <Header />
         <Route exact path="/" component={RESTy} />
         <Route path="/history" component={History} />
         <Footer />

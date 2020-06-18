@@ -1,18 +1,18 @@
 @import 'base';
 
-.header,
-.footer {
+header,
+footer {
   text-align: center;
   color: white;
 }
 
-.header {
+header {
   margin-top: 0px;
   padding: $spacing / 2;
   background-color: #006666;
 }
 
-.footer {
+footer {
   padding: $spacing;
   background-color: #007a99;
 
@@ -26,7 +26,7 @@
 }
 
 .content {
-  min-height: 83.5vh;
+  min-height: 82vh;
 }
 
 .req-type,
@@ -87,7 +87,7 @@
 
 .results {
   border-style: solid;
-  height: 67.5vh;
+  height: 66.5vh;
   @include setSpacing($spacing, $spacing / 2);
 
   * {
@@ -99,14 +99,16 @@
     font-size: 16px;
     height: 65vh;
 
-    @include setCompatibleProp('animation', fadein ease 1.5s);
+    &.normal-res {
+      @include setCompatibleProp('animation', fadein ease 1s);
 
-    @keyframes fadein {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
+      @keyframes fadein {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
       }
     }
   }
@@ -118,5 +120,42 @@
 
   .error {
     color: red;
+    animation: shake 0.5s;
+
+    @keyframes shake {
+      0% {
+        transform: translate(1px, 1px) rotate(0deg);
+      }
+      10% {
+        transform: translate(-1px, -2px) rotate(-1deg);
+      }
+      20% {
+        transform: translate(-3px, 0px) rotate(1deg);
+      }
+      30% {
+        transform: translate(3px, 2px) rotate(0deg);
+      }
+      40% {
+        transform: translate(1px, -1px) rotate(1deg);
+      }
+      50% {
+        transform: translate(-1px, 2px) rotate(-1deg);
+      }
+      60% {
+        transform: translate(-3px, 1px) rotate(0deg);
+      }
+      70% {
+        transform: translate(3px, 1px) rotate(-1deg);
+      }
+      80% {
+        transform: translate(-1px, -1px) rotate(1deg);
+      }
+      90% {
+        transform: translate(1px, 2px) rotate(0deg);
+      }
+      100% {
+        transform: translate(1px, -2px) rotate(-1deg);
+      }
+    }
   }
 }
