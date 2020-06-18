@@ -1,34 +1,5 @@
 @import 'base';
 
-header,
-footer {
-  text-align: center;
-  color: white;
-}
-
-header {
-  margin-top: 0px;
-  padding: $spacing / 2;
-  background-color: #006666;
-}
-
-footer {
-  padding: $spacing;
-  background-color: #007a99;
-
-  svg {
-    margin: auto $spacing;
-  }
-
-  a:visited {
-    color: white;
-  }
-}
-
-.content {
-  min-height: 82vh;
-}
-
 .req-type,
 .form-input {
   text-align: center;
