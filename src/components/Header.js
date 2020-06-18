@@ -18,7 +18,7 @@ function Header() {
   return (
     <header>
       <h1>RESTy</h1>
-      <Nav links={links} />
+      <Nav links={links} className="top-navbar" />
     </header>
   );
 }

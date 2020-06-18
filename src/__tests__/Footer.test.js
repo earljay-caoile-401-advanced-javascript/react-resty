@@ -1,10 +1,10 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { render } from 'enzyme';
 import Footer from '../components/Footer';
 
 describe('footer component', () => {
   it('displays the proper html and text', () => {
-    const component = mount(<Footer />);
+    const component = render(<Footer />);
     const pTag = component.find('p');
     const gitHubSvg = component.find('svg.fa-github');
     const linkedInSvg = component.find('svg.fa-linkedin');
