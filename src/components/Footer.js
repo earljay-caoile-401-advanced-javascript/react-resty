@@ -15,10 +15,10 @@ function Footer() {
   return (
     <footer>
       <p>Created by Earl Jay Caoile</p>
-      <a href="https://github.com/ecaoile">
+      <a href="https://www.linkedin.com/in/earl-jay-caoile/">
         <FontAwesomeIcon icon={faLinkedin} size="lg" />
       </a>
-      <a href="https://www.linkedin.com/in/earl-jay-caoile/">
+      <a href="https://github.com/ecaoile">
         <FontAwesomeIcon icon={faGithub} size="lg" />
       </a>
     </footer>

@@ -1,5 +1,6 @@
 $spacing: 1em;
 $pxPad: 20px;
+$contentHeight: 78.5vh;
 
 #root {
   font-family: Arial;
@@ -54,7 +55,7 @@ header {
 }
 
 footer {
-  padding: $spacing;
+  padding: $spacing * 1.25;
   background-color: #007a99;
 
   svg {
@@ -65,8 +66,6 @@ footer {
     color: white;
   }
 }
-
-$contentHeight: 79vh;
 
 .content {
   min-height: $contentHeight;
