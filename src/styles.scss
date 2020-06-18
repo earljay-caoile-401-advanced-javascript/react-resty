@@ -58,7 +58,7 @@
 
 .results {
   border-style: solid;
-  height: 66.5vh;
+  height: $contentHeight - 15.5vh; // 63.5vh;
   @include setSpacing($spacing, $spacing / 2);
 
   * {
@@ -68,7 +68,7 @@
 
   pre {
     font-size: 16px;
-    height: 65vh;
+    height: $contentHeight - 18vh; // 61vh
 
     &.normal-res {
       @include setCompatibleProp('animation', fadein ease 1s);

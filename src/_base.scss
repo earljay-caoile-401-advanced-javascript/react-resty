@@ -66,6 +66,8 @@ footer {
   }
 }
 
+$contentHeight: 79vh;
+
 .content {
-  min-height: 82vh;
+  min-height: $contentHeight;
 }
