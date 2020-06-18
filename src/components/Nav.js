@@ -6,15 +6,15 @@ function Nav(props) {
 
   for (let i = 0; i < props.links.length; i++) {
     navLinks.push(
-      <li key={i} className="item">
+      <li key={i}>
         <Link to={props.links[i].url}>{props.links[i].displayName}</Link>
       </li>
     );
   }
 
   return (
-    <nav className={props.className} style={props.styles}>
-      <ul className="menu">{navLinks}</ul>
+    <nav className={props.className}>
+      <ul>{navLinks}</ul>
     </nav>
   );
 }
