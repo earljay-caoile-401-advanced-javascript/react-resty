@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import RESTy from './components/RESTy';
 import History from './components/History';
+import Footer from './components/Footer';
 import './styles.scss';
 
 /**
@@ -22,7 +23,7 @@ export default function App() {
         <h1 className="header">RESTy</h1>
         <Route exact path="/" component={RESTy} />
         <Route path="/history" component={History} />
-        <div className="footer">Created by Earl Jay Caoile</div>
+        <Footer />
       </div>
     </BrowserRouter>
   );
