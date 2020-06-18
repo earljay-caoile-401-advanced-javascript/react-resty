@@ -15,6 +15,10 @@ function Form(props) {
     props.onChange(e.target.value);
   }
 
+  function handleReqBodyChange(e) {
+    props.onReqBoxChange(e.target.value);
+  }
+
   /**
    * helper function that works as an event listener for the submit button click or enter press
    * @param   {object} e event listener object
@@ -65,12 +69,13 @@ function Form(props) {
       <div className="form-input">
         <label>{props.label}</label>
         <input
-          className="textbox"
+          className="url-textbox"
           type={props.type}
           value={props.value}
           onChange={handleChange}
           onKeyPress={handleSubmit}
         />
+        <textarea className="reqBody-textbox" onChange={handleReqBodyChange} />
         <button value="Submit" id="submit-btn" onClick={handleSubmit}>
           Submit
         </button>

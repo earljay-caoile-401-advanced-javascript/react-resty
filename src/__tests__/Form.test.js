@@ -11,7 +11,7 @@ describe('form component', () => {
     const putBtn = component.find('button#put-btn');
     const patchBtn = component.find('button#patch-btn');
     const deleteBtn = component.find('button#delete-btn');
-    const inputBox = component.find('input.textbox');
+    const inputBox = component.find('input.url-textbox');
     const submitBtn = component.find('button#submit-btn');
 
     expect(selectedBtn.text()).toBe('GET');

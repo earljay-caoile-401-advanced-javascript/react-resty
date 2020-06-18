@@ -5,7 +5,7 @@ import RESTy from '../components/RESTy';
 describe('resty component', () => {
   it('updates the state correctly when we type into the input field and sends props to form component', async () => {
     const component = mount(<RESTy />);
-    const inputTextbox = component.find('input.textbox');
+    const inputTextbox = component.find('input.url-textbox');
     expect(inputTextbox.text()).toBe('');
     expect(component.state('url')).toBe('');
 

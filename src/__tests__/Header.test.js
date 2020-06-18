@@ -16,7 +16,7 @@ describe('header component', () => {
     expect(navList).toBeDefined();
 
     expect(h1Tag.text()).toBe('RESTy');
-    expect(navList.find('li')).toHaveLength(2);
+    expect(navList.children()).toHaveLength(2);
     expect(navList.text().includes('Home')).toBe(true);
     expect(navList.text().includes('History')).toBe(true);
   });

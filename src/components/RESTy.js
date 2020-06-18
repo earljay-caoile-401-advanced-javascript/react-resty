@@ -38,12 +38,21 @@ class RESTy extends React.Component {
           loading: true,
         });
 
+        // console.log(
+        //   'Does JSON.parse work here?',
+        //   JSON.stringify(JSON.parse(this.state.reqBody))
+        // );
         const res = await fetch(baseURL, {
           method: this.state.reqType,
           headers: {
-            Accept: 'application/json',
+            'Content-Type': 'application/json',
           },
-          body: this.state.reqBody,
+          body:
+            this.state.reqType === 'POST' ||
+            this.state.reqType === 'PUT' ||
+            this.state.reqType === 'PATCH'
+              ? JSON.stringify(JSON.parse(this.state.reqBody))
+              : null,
         });
 
         if (res) {
@@ -61,6 +70,10 @@ class RESTy extends React.Component {
             headers: newHeaders,
           });
 
+          if (this.state.results.error) {
+            throw new Error('500 error');
+          }
+
           this.setState({
             output: {
               headers: this.state.headers,
@@ -73,8 +86,17 @@ class RESTy extends React.Component {
         }
       } catch (e) {
         console.error('Error: could not perform operation.', e.message);
+
+        const errorOutput =
+          e.message === '500 error'
+            ? this.state.results
+            : {
+                error: 'could not perform operation',
+                message: e.message,
+              };
+
         this.setState({
-          output: { error: 'could not perform operation', message: e.message },
+          output: errorOutput,
         });
       } finally {
         this.setState({
@@ -100,6 +122,11 @@ class RESTy extends React.Component {
     this.setState({ reqType: val });
   }
 
+  updateReqBody(val) {
+    this.setState({ reqBody: val });
+    console.log('What is reqBody now?', val);
+  }
+
   render() {
     return (
       <div className="content">
@@ -110,6 +137,7 @@ class RESTy extends React.Component {
           type="text"
           stateKey="url"
           onChange={this.updateURL.bind(this)}
+          onReqBoxChange={this.updateReqBody.bind(this)}
           onSubmit={this.apiFetch.bind(this)}
           onClick={this.updateReqType.bind(this)}
         />
