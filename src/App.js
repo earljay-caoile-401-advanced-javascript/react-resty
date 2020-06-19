@@ -18,12 +18,22 @@ import './styles.scss';
  * )
  */
 export default function App() {
+  const fetchHistory = [];
+
   return (
     <BrowserRouter>
       <div className="App">
         <Header />
-        <Route exact path="/" component={RESTy} />
-        <Route path="/history" component={History} />
+        <Route
+          exact
+          path="/"
+          render={() => <RESTy fetchHistory={fetchHistory} />}
+        />
+        <Route
+          exact
+          path="/history"
+          render={() => <History fetchHistory={fetchHistory} />}
+        />
         <Footer />
       </div>
     </BrowserRouter>

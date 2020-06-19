@@ -24,7 +24,6 @@ class RESTy extends React.Component {
       reqBody: null,
       output: {},
       loading: false,
-      history: [],
     };
   }
 
@@ -80,13 +79,11 @@ class RESTy extends React.Component {
             reqType: this.state.reqType,
           };
 
-          this.state.history.push(currOutput);
+          this.props.fetchHistory.push(currOutput);
 
           this.setState({
             output: currOutput,
           });
-
-          console.log('What is this.state.history now?', this.state.history);
         }
       } catch (e) {
         console.error('Error: could not perform operation.', e.message);
@@ -99,7 +96,7 @@ class RESTy extends React.Component {
                 message: e.message,
               };
 
-        this.state.history.push(errorOutput);
+        this.props.fetchHistory.push(errorOutput);
         this.setState({
           output: errorOutput,
         });
@@ -137,7 +134,7 @@ class RESTy extends React.Component {
   }
 
   async fetchPrevReq(index) {
-    const prevReq = this.state.history[index];
+    const prevReq = this.props.fetchHistory[index];
 
     await this.setState({
       url: prevReq.url,
@@ -169,7 +166,7 @@ class RESTy extends React.Component {
             loading={this.state.loading}
           />
           <MiniHistory
-            history={this.state.history}
+            fetchHistory={this.props.fetchHistory || []}
             onHistClick={this.fetchPrevReq.bind(this)}
           />
         </div>

@@ -2,13 +2,6 @@ $spacing: 1em;
 $pxPad: 20px;
 $contentHeight: 77vh;
 
-#root {
-  font-family: Arial;
-  display: flex;
-  flex-direction: column;
-  background-color: #ffffff;
-}
-
 @mixin setSpacing($marginProp, $paddingProp) {
   margin: $marginProp;
   padding: $paddingProp;
@@ -20,6 +13,13 @@ $contentHeight: 77vh;
   -moz-#{$prop}: $val;
   -ms-#{$prop}: $val;
   -o-#{$prop}: $val;
+}
+
+#root {
+  font-family: Arial;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
 }
 
 header,

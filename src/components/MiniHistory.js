@@ -3,15 +3,13 @@ import React from 'react';
 function MiniHistory(props) {
   const histotryArr = [];
 
-  if (props.history && props.history.length) {
-    for (let i = 0; i < props.history.length; i++) {
-      const currHistory = props.history[i];
-      histotryArr.push(
-        <li key={i} value={i} onClick={handleHistClick}>
-          {currHistory.reqType} {currHistory.url}
-        </li>
-      );
-    }
+  for (let i = 0; i < props.fetchHistory.length; i++) {
+    const currHistory = props.fetchHistory[i];
+    histotryArr.push(
+      <li key={i} value={i} onClick={handleHistClick}>
+        {currHistory.reqType} {currHistory.url}
+      </li>
+    );
   }
 
   function handleHistClick(e) {
