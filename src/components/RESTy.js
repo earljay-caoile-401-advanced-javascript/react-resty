@@ -1,6 +1,7 @@
 import React from 'react';
 import Form from './Form';
 import Results from './Results';
+import MiniHistory from './MiniHistory';
 
 /**
  * Parent component that passes props to Form and Results components and renders them
@@ -23,6 +24,7 @@ class RESTy extends React.Component {
       reqBody: null,
       output: {},
       loading: false,
+      history: [],
     };
   }
 
@@ -70,15 +72,21 @@ class RESTy extends React.Component {
             throw new Error('500 error');
           }
 
+          const currOutput = {
+            headers: this.state.headers,
+            results: this.state.results,
+            count: this.state.count,
+            url: this.state.url,
+            reqType: this.state.reqType,
+          };
+
+          this.state.history.push(currOutput);
+
           this.setState({
-            output: {
-              headers: this.state.headers,
-              results: this.state.results,
-              count: this.state.count,
-              url: this.state.url,
-              reqType: this.state.reqType,
-            },
+            output: currOutput,
           });
+
+          console.log('What is this.state.history now?', this.state.history);
         }
       } catch (e) {
         console.error('Error: could not perform operation.', e.message);
@@ -91,6 +99,7 @@ class RESTy extends React.Component {
                 message: e.message,
               };
 
+        this.state.history.push(errorOutput);
         this.setState({
           output: errorOutput,
         });
@@ -141,11 +150,14 @@ class RESTy extends React.Component {
           onSubmit={this.apiFetch.bind(this)}
           onClick={this.updateReqType.bind(this)}
         />
-        <Results
-          className="results"
-          output={this.state.output}
-          loading={this.state.loading}
-        />
+        <div className="res-and-history">
+          <Results
+            className="results"
+            output={this.state.output}
+            loading={this.state.loading}
+          />
+          <MiniHistory history={this.state.history} />
+        </div>
       </div>
     );
   }
