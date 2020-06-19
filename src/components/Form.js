@@ -44,41 +44,51 @@ function Form(props) {
 
   return (
     <div className="form">
-      <div className="req-type">
-        <button
-          value="GET"
-          className="selected-btn"
-          id="get-btn"
-          onClick={handleBtnClick}
-        >
-          GET
-        </button>
-        <button value="POST" id="post-btn" onClick={handleBtnClick}>
-          POST
-        </button>
-        <button value="PUT" id="put-btn" onClick={handleBtnClick}>
-          PUT
-        </button>
-        <button value="PATCH" id="patch-btn" onClick={handleBtnClick}>
-          PATCH
-        </button>
-        <button value="DELETE" id="delete-btn" onClick={handleBtnClick}>
-          DELETE
-        </button>
-      </div>
       <div className="form-input">
-        <label>{props.label}</label>
-        <input
-          className="url-textbox"
-          type={props.type}
-          value={props.value}
-          onChange={handleChange}
-          onKeyPress={handleSubmit}
-        />
-        <textarea className="reqBody-textbox" onChange={handleReqBodyChange} />
-        <button value="Submit" id="submit-btn" onClick={handleSubmit}>
-          Submit
-        </button>
+        <div className="req-type">
+          <button
+            value="GET"
+            className="selected-btn"
+            id="get-btn"
+            onClick={handleBtnClick}
+          >
+            GET
+          </button>
+          <button value="POST" id="post-btn" onClick={handleBtnClick}>
+            POST
+          </button>
+          <button value="PUT" id="put-btn" onClick={handleBtnClick}>
+            PUT
+          </button>
+          <button value="PATCH" id="patch-btn" onClick={handleBtnClick}>
+            PATCH
+          </button>
+          <button value="DELETE" id="delete-btn" onClick={handleBtnClick}>
+            DELETE
+          </button>
+        </div>
+        <div className="form-child">
+          <label>{props.label}</label>
+          <input
+            className="url-textbox"
+            name="url-textbox"
+            type={props.type}
+            value={props.value}
+            onChange={handleChange}
+            onKeyPress={handleSubmit}
+          />
+          <button value="Submit" id="submit-btn" onClick={handleSubmit}>
+            Submit
+          </button>
+        </div>
+        <div className="form-child">
+          <label>Body</label>
+          <textarea
+            className="reqBody-textbox"
+            name="reqBody-textbox"
+            onChange={handleReqBodyChange}
+          />
+        </div>
       </div>
     </div>
   );

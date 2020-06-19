@@ -38,10 +38,6 @@ class RESTy extends React.Component {
           loading: true,
         });
 
-        // console.log(
-        //   'Does JSON.parse work here?',
-        //   JSON.stringify(JSON.parse(this.state.reqBody))
-        // );
         const res = await fetch(baseURL, {
           method: this.state.reqType,
           headers: {

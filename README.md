@@ -29,6 +29,7 @@ Lab 23 and then some for CF JS 401 Nights
 - [Using CSS for a fade-in effect on page load](https://stackoverflow.com/questions/11679567/using-css-for-a-fade-in-effect-on-page-load)
 - [ease-out, in; ease-in, out](https://css-tricks.com/ease-out-in-ease-in-out/)
 - [how to CSS shake image](https://www.w3schools.com/howto/howto_css_shake_image.asp)
+- [Flexbox Centering Guide](https://onextrapixel.com/flexbox-centering-guide/)
 
 ### Documentation
 

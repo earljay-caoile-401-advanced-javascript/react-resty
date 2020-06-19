@@ -9,59 +9,86 @@
   margin: $spacing;
 }
 
-.req-type {
-  button {
-    background-color: #004680;
-    color: white;
-    @include setSpacing($spacing, $spacing $spacing * 2);
-
-    &:hover {
-      background-color: #3f6181;
-      cursor: pointer;
-    }
-  }
-
-  .selected-btn {
-    border: 0.4em solid green;
-    background-color: #3f6181;
-  }
-}
-
 .form-input {
-  label {
-    margin: auto $spacing / 2;
-  }
-
   input {
     @include setSpacing($spacing / 2, $spacing / 2);
   }
 
-  input.url-textbox {
+  button {
+    @include setSpacing($spacing, $spacing $spacing * 2);
+  }
+
+  .form-child {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    label,
+    textarea {
+      @include setSpacing(0, $spacing);
+    }
+  }
+
+  .url-textbox {
     width: 70%;
     overflow: hidden;
   }
 
   .reqBody-textbox {
-    width: 100%;
-    height: 150px;
-    padding: 12px 20px;
+    width: 70.75%;
+    height: $spacing * 10;
     box-sizing: border-box;
     border: 2px solid #ccc;
     border-radius: 4px;
     background-color: #f8f8f8;
   }
 
-  button {
-    @include setSpacing($spacing, $pxPad / 2 $pxPad);
+  .req-type {
+    button {
+      background-color: #004680;
+      color: white;
+
+      &:hover {
+        background-color: #3f6181;
+        cursor: pointer;
+      }
+    }
+
+    .selected-btn {
+      border: 0.4em solid green;
+      background-color: #3f6181;
+    }
+  }
+
+  #submit-btn {
+    background-color: #c3dbee;
+
+    &:hover {
+      background-color: #337a9b;
+      color: #ffff;
+      @include setCompatibleProp('transition', ease 0.25s);
+    }
   }
 
   @media only screen and (max-width: 700px) {
+    label {
+      padding: $spacing / 2;
+    }
+
+    .form-child {
+      display: block;
+    }
+
     input.url-textbox {
-      width: 94%;
+      width: 92.5%;
     }
 
     #submit-btn {
       width: 95%;
+    }
+
+    .reqBody-textbox {
+      width: 100%;
     }
   }
 }
