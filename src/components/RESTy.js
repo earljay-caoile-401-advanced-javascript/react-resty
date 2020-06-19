@@ -118,9 +118,13 @@ class RESTy extends React.Component {
     this.setState({ reqType: val });
   }
 
+  /**
+   * helper function that updates reqbody state so that it can be used as a paramter for submission
+   * when needed
+   * @return  {void}
+   */
   updateReqBody(val) {
     this.setState({ reqBody: val });
-    console.log('What is reqBody now?', val);
   }
 
   render() {

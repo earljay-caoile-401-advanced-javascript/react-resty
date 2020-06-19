@@ -27,6 +27,10 @@
     textarea {
       @include setSpacing(0, $spacing);
     }
+
+    textarea {
+      resize: none;
+    }
   }
 
   .url-textbox {
@@ -95,7 +99,7 @@
 
 .results {
   border-style: solid;
-  height: $contentHeight - 15.5vh; // 63.5vh;
+  height: $contentHeight - 25.5vh; // 63.5vh;
   @include setSpacing($spacing, $spacing / 2);
 
   * {
@@ -105,7 +109,7 @@
 
   pre {
     font-size: 16px;
-    height: $contentHeight - 18vh; // 61vh
+    height: $contentHeight - 28vh; // 61vh
 
     &.normal-res {
       @include setCompatibleProp('animation', fadein ease 1s);
