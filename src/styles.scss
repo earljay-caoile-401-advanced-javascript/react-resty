@@ -195,3 +195,27 @@
     display: block;
   }
 }
+
+.mini-history {
+  h3 {
+    text-align: center;
+    margin: $spacing / 2 auto;
+  }
+
+  ul {
+    margin: 0;
+    overflow: auto;
+    height: 48vh;
+
+    li {
+      list-style-type: none;
+      padding: $spacing;
+      border: 2px solid;
+      margin: 0;
+
+      &:hover {
+        background-color: #bde4f7;
+      }
+    }
+  }
+}

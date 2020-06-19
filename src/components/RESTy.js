@@ -136,6 +136,18 @@ class RESTy extends React.Component {
     this.setState({ reqBody: val });
   }
 
+  async fetchPrevReq(index) {
+    const prevReq = this.state.history[index];
+
+    await this.setState({
+      url: prevReq.url,
+      reqType: prevReq.reqType,
+      reqBody: prevReq.reqBody,
+    });
+
+    await this.apiFetch();
+  }
+
   render() {
     return (
       <div className="content">
@@ -156,7 +168,10 @@ class RESTy extends React.Component {
             output={this.state.output}
             loading={this.state.loading}
           />
-          <MiniHistory history={this.state.history} />
+          <MiniHistory
+            history={this.state.history}
+            onHistClick={this.fetchPrevReq.bind(this)}
+          />
         </div>
       </div>
     );
