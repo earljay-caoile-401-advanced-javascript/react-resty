@@ -1,0 +1,79 @@
+@import 'base';
+
+.header,
+.footer {
+  text-align: center;
+  color: white;
+}
+
+.header {
+  margin-top: 0px;
+  padding: $spacing / 2;
+  background-color: #006666;
+}
+
+.footer {
+  padding: $spacing;
+  background-color: #007a99;
+}
+
+.req-type {
+  button {
+    background-color: #004680;
+    color: white;
+    @include setSpacing($spacing, $spacing $spacing * 2);
+
+    &:hover {
+      background-color: #3f6181;
+      cursor: pointer;
+    }
+  }
+
+  .selected-btn {
+    border: 0.4em solid green;
+    background-color: #3f6181;
+  }
+}
+
+.form-input {
+  label {
+    margin: auto $spacing / 2;
+  }
+
+  input {
+    @include setSpacing($spacing / 2, $spacing / 2);
+  }
+
+  input.textbox {
+    width: 70%;
+    overflow: hidden;
+  }
+
+  button {
+    @include setSpacing($spacing, $pxPad / 2 $pxPad);
+  }
+
+  @media only screen and (max-width: 675px) {
+    input.textbox {
+      width: 94%;
+    }
+
+    #submit-btn {
+      width: 95%;
+    }
+  }
+}
+
+.res-border {
+  border-style: solid;
+  min-height: 80vh;
+  @include setSpacing($spacing / 2, $spacing);
+
+  * {
+    color: #030369;
+  }
+}
+
+.loading {
+  font-size: 24px;
+}

@@ -1,0 +1,15 @@
+$spacing: 1em;
+$pxPad: 20px;
+
+#root {
+  font-family: Arial;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #ffffff;
+}
+
+@mixin setSpacing($marginProp, $paddingProp) {
+  margin: $marginProp;
+  padding: $paddingProp;
+}
