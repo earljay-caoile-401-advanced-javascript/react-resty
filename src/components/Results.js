@@ -11,10 +11,17 @@ function Results(props) {
   const resContent = (
     <If
       condition={
-        props.output && Object.keys(props.output).length && !props.loading
+        props &&
+        props.output &&
+        Object.keys(props.output).length &&
+        !props.loading
       }
     >
-      <pre className={props.output.error ? 'error' : 'normal-res'}>
+      <pre
+        className={
+          props && props.output && props.output.error ? 'error' : 'normal-res'
+        }
+      >
         {JSON.stringify(props.output, null, 2)}
       </pre>
     </If>
