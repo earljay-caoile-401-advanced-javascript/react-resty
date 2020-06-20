@@ -12,7 +12,7 @@ Lab 23 and then some for CF JS 401 Nights
 
 - [submission PR](https://github.com/earljay-caoile-401-advanced-javascript/react-resty/pull/2)
 - [GitHub actions](https://github.com/earljay-caoile-401-advanced-javascript/react-resty/actions)
-- [code sandbox](https://codesandbox.io/s/resty-vilrl)
+- [code sandbox](https://codesandbox.io/s/github/earljay-caoile-401-advanced-javascript/react-resty/tree/lab-24)
 - [Netlify deployment](https://youthful-liskov-6b361a.netlify.app/) [![Netlify Status](https://api.netlify.com/api/v1/badges/f110229a-7ce3-4c1c-8d74-3f0140f7a68d/deploy-status)](https://app.netlify.com/sites/youthful-liskov-6b361a/deploys)
 
 #### Resources
@@ -55,4 +55,4 @@ To make a GET API call, type or paste the API endpoint and hit `enter` or click 
 
 ### UML
 
-![UML Image](lab-23-uml.png "uml diagram")
+![UML Image](lab-24-uml.png "uml diagram")
