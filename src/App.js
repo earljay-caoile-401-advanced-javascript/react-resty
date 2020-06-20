@@ -146,15 +146,22 @@ class App extends React.Component {
     await this.setState({ reqBody: val });
   }
 
+  /**
+   * helper function that re-runs a previous request with the same parameters as before
+   * @param   {object} index number for the index in the history array
+   * @return  {void}
+   */
   async fetchPrevReq(index) {
     const prevReq = this.state.history[index];
-    await this.setState({
-      url: prevReq.url,
-      reqType: prevReq.reqType,
-      reqBody: prevReq.reqBody,
-    });
+    if (prevReq) {
+      await this.setState({
+        url: prevReq.url,
+        reqType: prevReq.reqType,
+        reqBody: prevReq.reqBody,
+      });
 
-    await this.apiFetch();
+      await this.apiFetch();
+    }
   }
 
   render() {

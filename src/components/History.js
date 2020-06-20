@@ -1,7 +1,7 @@
 import React from 'react';
 import MiniHistory from './MiniHistory';
 import { Redirect } from 'react-router-dom';
-
+import Results from './Results';
 /**
  * Parent component that shows history of API requests
  *
@@ -47,13 +47,7 @@ class History extends React.Component {
             onSubmit={this.handleSubmit.bind(this)}
             selectedIndex={this.state.selectedIndex}
           />
-          <div className="fetch-details results">
-            <pre>
-              {this.state.currDetails
-                ? JSON.stringify(this.state.currDetails, null, 2)
-                : 'Run a query on the home page to see fetch history details.'}
-            </pre>
-          </div>
+          <Results className="results" output={this.state.currDetails} />
         </div>
       </div>
     );
