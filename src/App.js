@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import RESTy from './components/RESTy';
 import History from './components/History';
 import Header from './components/Header';
@@ -24,16 +24,18 @@ export default function App() {
     <BrowserRouter>
       <div className="App">
         <Header />
-        <Route
-          exact
-          path="/"
-          render={() => <RESTy fetchHistory={fetchHistory} />}
-        />
-        <Route
-          exact
-          path="/history"
-          render={() => <History fetchHistory={fetchHistory} />}
-        />
+        <Switch>
+          <Route
+            exact
+            path="/"
+            render={() => <RESTy fetchHistory={fetchHistory} />}
+          />
+          <Route
+            exact
+            path="/history"
+            render={() => <History fetchHistory={fetchHistory} />}
+          />
+        </Switch>
         <Footer />
       </div>
     </BrowserRouter>

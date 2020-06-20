@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { BrowserRouter, Link } from 'react-router-dom';
 
 function MiniHistory(props) {
   const historyArr = [];
@@ -41,18 +41,20 @@ function MiniHistory(props) {
     <div className="mini-history">
       <h3>History (click query to re-fetch)</h3>
       <ul className="history-list">{historyArr}</ul>
-      <Link
-        to={{
-          pathname: '/',
-          state: {
-            foo: 'bar',
-          },
-        }}
-      >
-        <button id="submit-btn" value={selectedIndex} onClick={handleSubmit}>
-          Submit
-        </button>
-      </Link>
+      <BrowserRouter>
+        <Link
+          to={{
+            pathname: '/',
+            state: {
+              foo: 'bar',
+            },
+          }}
+        >
+          <button id="submit-btn" value={selectedIndex} onClick={handleSubmit}>
+            Submit
+          </button>
+        </Link>
+      </BrowserRouter>
     </div>
   );
 }

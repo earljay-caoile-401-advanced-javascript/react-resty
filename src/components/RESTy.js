@@ -160,7 +160,7 @@ class RESTy extends React.Component {
 
   render() {
     return (
-      <div className="content">
+      <div id="resty" className="content">
         <p>{}</p>
         <Form
           className="form-url"
