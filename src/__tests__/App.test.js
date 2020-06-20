@@ -1,10 +1,10 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import RESTy from '../components/RESTy';
+import App from '../App';
 
-describe('resty component', () => {
+describe('App component', () => {
   it('updates the state correctly when we type into the input field and sends props to form component', async () => {
-    const component = mount(<RESTy />);
+    const component = mount(<App />);
     const inputTextbox = component.find('input.url-textbox');
     expect(inputTextbox.text()).toBe('');
     expect(component.state('url')).toBe('');
@@ -21,8 +21,8 @@ describe('resty component', () => {
     );
   });
 
-  it('can display the data in the results component when state in RESTy is updated', () => {
-    const component = mount(<RESTy />);
+  it('can display the data in the results component when state in App is updated', () => {
+    const component = mount(<App />);
     expect(component.find('pre')).toHaveLength(0);
 
     const mockedState = {
@@ -69,7 +69,7 @@ describe('resty component', () => {
   });
 
   it('can change reqType state on click', () => {
-    const component = mount(<RESTy />, { attachTo: document.body });
+    const component = mount(<App />, { attachTo: document.body });
     const selectedBtn = component.find('button.selected-btn');
     const getBtn = component.find('button#get-btn');
     const postBtn = component.find('button#post-btn');
