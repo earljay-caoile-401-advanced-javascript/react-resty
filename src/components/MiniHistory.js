@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function MiniHistory(props) {
   const historyArr = [];
@@ -24,14 +25,15 @@ function MiniHistory(props) {
     console.log('selected index is now this:', selectedIndex);
   }
 
-  function handleHistClick(e) {
-    console.log('What is e?', e);
+  function handleSubmit() {
     if (selectedIndex !== null) {
-      props.onHistClick(selectedIndex);
       const prevSelected = document.querySelector('.selected-btn');
+
       if (prevSelected) {
         prevSelected.classList.remove('selected-btn');
       }
+
+      props.onSubmit(selectedIndex);
     }
   }
 
@@ -39,9 +41,18 @@ function MiniHistory(props) {
     <div className="mini-history">
       <h3>History (click query to re-fetch)</h3>
       <ul className="history-list">{historyArr}</ul>
-      <button id="submit-btn" value={selectedIndex} onClick={handleHistClick}>
-        Submit
-      </button>
+      <Link
+        to={{
+          pathname: '/',
+          state: {
+            foo: 'bar',
+          },
+        }}
+      >
+        <button id="submit-btn" value={selectedIndex} onClick={handleSubmit}>
+          Submit
+        </button>
+      </Link>
     </div>
   );
 }

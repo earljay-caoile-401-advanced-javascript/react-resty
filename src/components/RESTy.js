@@ -24,9 +24,23 @@ class RESTy extends React.Component {
       reqBody: null,
       output: {},
       loading: false,
+      index: null,
     };
+    // console.log('What is this.state now?', this.state);
+    // console.log('And what about props?', props);
   }
 
+  componentDidMount() {
+    // console.log('does query get updated?', this.state.query);
+    // console.log('How about props?', this.props.location);
+    console.log('What are props now?', this.props);
+    console.log('What is state?', this.state);
+
+    if (this.props.location !== undefined) {
+      // const { index } = this.props.location.state;
+      // console.log('Did index make it to componentDidMount?!', index);
+    }
+  }
   /**
    * helper function that updates states on user submission (button click or enter key)
    * @return  {void}
@@ -135,7 +149,6 @@ class RESTy extends React.Component {
 
   async fetchPrevReq(index) {
     const prevReq = this.props.fetchHistory[index];
-
     await this.setState({
       url: prevReq.url,
       reqType: prevReq.reqType,
@@ -148,6 +161,7 @@ class RESTy extends React.Component {
   render() {
     return (
       <div className="content">
+        <p>{}</p>
         <Form
           className="form-url"
           label="URL"
@@ -167,7 +181,7 @@ class RESTy extends React.Component {
           />
           <MiniHistory
             fetchHistory={this.props.fetchHistory || []}
-            onHistClick={this.fetchPrevReq.bind(this)}
+            onSubmit={this.fetchPrevReq.bind(this)}
           />
         </div>
       </div>
