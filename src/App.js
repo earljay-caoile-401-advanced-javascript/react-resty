@@ -31,7 +31,6 @@ class App extends React.Component {
       reqBody: null,
       output: {},
       loading: false,
-      refetchIndex: null,
       history: [],
     };
   }
@@ -65,10 +64,11 @@ class App extends React.Component {
           const jsonRes = await res.json();
           const newHeaders = {};
 
-          /*eslint no-unused-vars: ["error", { "varsIgnorePattern": "entry" }]*/
+          /*eslint-disable no-unused-vars*/
           for (const entry of res.headers.entries()) {
             newHeaders[entry[0]] = entry[1];
           }
+          /*eslint-disable no-unused-vars*/
 
           this.setState({
             results: jsonRes.results || jsonRes,
@@ -88,7 +88,8 @@ class App extends React.Component {
             reqType: this.state.reqType,
           };
 
-          this.state.history.push(currOutput);
+          // this.state.history.push(currOutput);
+          this.updateHistory(currOutput);
 
           await this.setState({
             output: currOutput,
@@ -112,7 +113,7 @@ class App extends React.Component {
           output: errorOutput,
         });
 
-        this.state.history.push(errorOutput);
+        // this.state.history.push(errorOutput);
       } finally {
         this.setState({
           loading: false,
@@ -162,6 +163,26 @@ class App extends React.Component {
 
       await this.apiFetch();
     }
+  }
+
+  /**
+   * helper function that determines whether a request should be added to the history array or not
+   * @param   {object} currOutput object for the request being done
+   * @return  {void}
+   */
+  updateHistory(currOutput) {
+    /*eslint-disable no-unused-vars*/
+    for (const prevReq of this.state.history) {
+      if (
+        prevReq.url === currOutput.url &&
+        prevReq.reqType === currOutput.reqType &&
+        prevReq.reqBody === currOutput.reqBody
+      ) {
+        return;
+      }
+    }
+    /*eslint-enable no-unused-vars*/
+    this.state.history.push(currOutput);
   }
 
   render() {
