@@ -1,5 +1,6 @@
 import React from 'react';
 import MiniHistory from './MiniHistory';
+import { Redirect } from 'react-router-dom';
 
 /**
  * Parent component that shows history of API requests
@@ -15,31 +16,43 @@ class History extends React.Component {
     super(props);
     this.state = {
       historyArr: [],
-      currDetails: props.fetchHistory ? props.fetchHistory[0] : null,
-      index: null,
+      currDetails: props.history ? props.history[0] : null,
+      selectedIndex: null,
+      redirect: false,
     };
   }
 
-  getFetchDetails(index) {
-    console.log('Are we getting index here?', index);
-    this.setState({ currDetails: this.props.fetchHistory[index] });
+  async showFetchDetails(index) {
+    await this.setState({
+      currDetails: this.props.history[index],
+      selectedIndex: index,
+    });
   }
 
-  handleSubmit(index) {
-    console.log('did we make it back to big history?', index);
+  async handleSubmit() {
+    await this.setState({ redirect: true });
+    await this.props.fetchPrevReq(this.state.selectedIndex);
   }
 
   render() {
-    return (
+    return this.state.redirect ? (
+      <Redirect push to="/" />
+    ) : (
       <div className="content margin-1">
         <h2>API Fetch History</h2>
-        <div className="flex-row">
-          <div className="big-history">
-            <MiniHistory
-              fetchHistory={this.props.fetchHistory || []}
-              onSubmit={this.handleSubmit}
-            />
-            <div className="fetch-details">Insert Fetch Details Here</div>
+        <div className="big-history flex-row">
+          <MiniHistory
+            history={this.props.history || []}
+            showFetchDetails={this.showFetchDetails.bind(this)}
+            onSubmit={this.handleSubmit.bind(this)}
+            selectedIndex={this.state.selectedIndex}
+          />
+          <div className="fetch-details results">
+            <pre>
+              {this.state.currDetails
+                ? JSON.stringify(this.state.currDetails, null, 2)
+                : 'Run a query on the home page to see fetch history details.'}
+            </pre>
           </div>
         </div>
       </div>

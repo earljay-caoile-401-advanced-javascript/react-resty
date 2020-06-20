@@ -1,14 +1,19 @@
 import React from 'react';
-import { BrowserRouter, Link } from 'react-router-dom';
+// import { BrowserRouter, Link } from 'react-router-dom';
 
 function MiniHistory(props) {
   const historyArr = [];
-  let selectedIndex = null;
+  let selectedIndex = props.selectedIndex;
 
-  for (let i = 0; i < props.fetchHistory.length; i++) {
-    const currHistory = props.fetchHistory[i];
+  for (let i = 0; i < props.history.length; i++) {
+    const currHistory = props.history[i];
     historyArr.push(
-      <li key={i} value={i} onClick={updateActiveIndex}>
+      <li
+        key={i}
+        value={i}
+        onClick={updateActiveIndex}
+        className={currHistory.error ? 'error' : null}
+      >
         {currHistory.reqType} {currHistory.url}
       </li>
     );
@@ -16,13 +21,17 @@ function MiniHistory(props) {
 
   function updateActiveIndex(e) {
     const prevSelected = document.querySelector('.selected-btn');
+
     if (prevSelected) {
       prevSelected.classList.remove('selected-btn');
     }
+
     e.target.classList.add('selected-btn');
-    console.log('What is e.target?', e.target);
     selectedIndex = e.target.value;
-    console.log('selected index is now this:', selectedIndex);
+
+    if (props.showFetchDetails) {
+      props.showFetchDetails(selectedIndex);
+    }
   }
 
   function handleSubmit() {
@@ -32,29 +41,17 @@ function MiniHistory(props) {
       if (prevSelected) {
         prevSelected.classList.remove('selected-btn');
       }
-
       props.onSubmit(selectedIndex);
     }
   }
 
   return (
     <div className="mini-history">
-      <h3>History (click query to re-fetch)</h3>
+      <h3>History</h3>
       <ul className="history-list">{historyArr}</ul>
-      <BrowserRouter>
-        <Link
-          to={{
-            pathname: '/',
-            state: {
-              foo: 'bar',
-            },
-          }}
-        >
-          <button id="submit-btn" value={selectedIndex} onClick={handleSubmit}>
-            Submit
-          </button>
-        </Link>
-      </BrowserRouter>
+      <button id="submit-btn" value={selectedIndex} onClick={handleSubmit}>
+        Re-Fetch
+      </button>
     </div>
   );
 }
