@@ -15,6 +15,7 @@ function Header() {
     { displayName: 'Home', url: '/' },
     { displayName: 'History', url: '/history' },
   ];
+
   return (
     <header>
       <h1>RESTy</h1>

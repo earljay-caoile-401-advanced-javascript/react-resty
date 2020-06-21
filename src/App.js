@@ -13,9 +13,10 @@ import MiniHistory from './components/history/MiniHistory';
  * @component
  * @example
  * return (
- *   <h1>RESTy</h1>
- *   <RESTy />
- *   <div>Created by Earl Jay Caoile</div>
+ *   <Header />
+ *   <Form />
+ *   <Results />
+ *   <MiniHistory />
  * )
  */
 class App extends React.Component {
