@@ -204,7 +204,7 @@ class App extends React.Component {
                   onSubmit={this.apiFetch.bind(this)}
                   onClick={this.updateReqType.bind(this)}
                 />
-                <div className="res-and-history">
+                <div className="res-and-history flex-row">
                   <Results
                     className="results"
                     output={this.state.output}

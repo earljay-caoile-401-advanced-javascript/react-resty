@@ -70,16 +70,6 @@
     }
   }
 
-  #submit-btn {
-    background-color: #c3dbee;
-
-    &:hover {
-      background-color: #337a9b;
-      color: #ffff;
-      @include setCompatibleProp('transition', ease 0.25s);
-    }
-  }
-
   @media only screen and (max-width: 900px) {
     label {
       padding: $spacing / 2;
@@ -108,6 +98,7 @@
   height: $contentHeight - 25.5vh; // 63.5vh;
   @include setSpacing($spacing, $spacing / 2);
   width: 72.5%;
+  background-color: white;
 
   * {
     color: #030369;
@@ -184,9 +175,6 @@
 }
 
 .res-and-history {
-  display: flex;
-  flex-direction: row;
-
   .mini-history {
     margin: $spacing;
   }
@@ -218,6 +206,7 @@
       padding: $spacing;
       border: 2px solid;
       margin: 0;
+      background-color: white;
 
       &:hover {
         background-color: #80cff7;
@@ -243,7 +232,15 @@
     &:hover {
       color: white;
       background-color: #0a233a;
-      @include setCompatibleProp('animation', fadein ease 0.25s);
     }
+  }
+}
+
+#submit-btn {
+  background-color: $darkGreen;
+  color: #ffff;
+  &:hover {
+    background-color: #337a9b;
+    color: #ffff;
   }
 }

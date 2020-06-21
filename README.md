@@ -30,6 +30,7 @@ Lab 23 and then some for CF JS 401 Nights
 - [ease-out, in; ease-in, out](https://css-tricks.com/ease-out-in-ease-in-out/)
 - [how to CSS shake image](https://www.w3schools.com/howto/howto_css_shake_image.asp)
 - [Flexbox Centering Guide](https://onextrapixel.com/flexbox-centering-guide/)
+- [how to set background image with opacity](https://stackoverflow.com/questions/4183948/can-i-set-background-image-and-opacity-in-the-same-property)
 
 ### Documentation
 
