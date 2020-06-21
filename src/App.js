@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import History from './components/History/History';
-import Header from './components/Header/Header';
-import Footer from './components/Footer/Footer';
-import Form from './components/Form/Form';
-import Results from './components/Results/Results';
-import MiniHistory from './components/History/MiniHistory';
+import History from './components/history/History';
+import Header from './components/header/Header';
+import Footer from './components/footer/Footer';
+import Form from './components/form/Form';
+import Results from './components/results/Results';
+import MiniHistory from './components/history/MiniHistory';
 
 /**
  * Parent component that returns the header, core content, and footer

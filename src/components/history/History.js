@@ -1,7 +1,7 @@
 import React from 'react';
 import MiniHistory from './MiniHistory';
 import { Redirect } from 'react-router-dom';
-import Results from '../Results/Results';
+import Results from '../results/Results';
 import './history.scss';
 
 /**
