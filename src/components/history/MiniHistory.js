@@ -1,4 +1,5 @@
 import React from 'react';
+import If from '../if/If';
 
 /**
  * Component that returns a list of fetched api calls
@@ -13,12 +14,7 @@ function MiniHistory(props) {
   for (let i = 0; i < props.history.length; i++) {
     const currHistory = props.history[i];
     historyArr.push(
-      <li
-        key={i}
-        value={i}
-        onClick={updateActiveIndex}
-        className={currHistory.error ? 'error' : null}
-      >
+      <li key={i} value={i} onClick={updateActiveIndex}>
         {currHistory.reqType} {currHistory.url}
       </li>
     );
@@ -50,7 +46,6 @@ function MiniHistory(props) {
    * @return  {void}
    */
   function handleSubmit() {
-    console.log('selectedIndex at top of handleSubmit?', selectedIndex);
     if (selectedIndex !== null) {
       const prevSelected = document.querySelector('.selected-btn');
 
@@ -62,13 +57,15 @@ function MiniHistory(props) {
   }
 
   return (
-    <div className="mini-history">
-      <h3>History</h3>
-      <ul className="history-list">{historyArr}</ul>
-      <button id="submit-btn" onClick={handleSubmit}>
-        Re-Fetch
-      </button>
-    </div>
+    <If condition={props}>
+      <div className="mini-history">
+        <h3>History</h3>
+        <ul className="history-list">{historyArr}</ul>
+        <button className="submit-btn" onClick={handleSubmit}>
+          Re-Fetch
+        </button>
+      </div>
+    </If>
   );
 }
 

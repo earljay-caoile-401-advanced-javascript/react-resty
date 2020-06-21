@@ -1,0 +1,44 @@
+@import '../../base';
+
+.mini-history {
+  width: 23vw;
+
+  @media only screen and (max-width: 900px) {
+    width: 96%;
+  }
+
+  h3 {
+    text-align: center;
+    margin: $spacing / 2 auto;
+  }
+
+  ul {
+    @include setSpacing(0, 0);
+    overflow: auto;
+    height: 40vh;
+
+    li {
+      list-style-type: none;
+      padding: $spacing;
+      border: 2px solid;
+      margin: 0;
+      background-color: white;
+
+      &:hover {
+        background-color: $teal;
+        color: white;
+        // @include setCompatibleProp('animation', fadein ease 0.25s);
+      }
+    }
+  }
+
+  button {
+    @include setSpacing($spacing * 2 auto, $spacing);
+    width: 93%;
+
+    @media only screen and (max-width: 900px) {
+      width: 100%;
+      text-align: center;
+    }
+  }
+}

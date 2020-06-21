@@ -1,7 +1,8 @@
 import React from 'react';
 import MiniHistory from './MiniHistory';
 import { Redirect } from 'react-router-dom';
-import Results from './Results';
+import Results from '../Results/Results';
+import './history.scss';
 
 /**
  * Parent component that shows history of API requests
@@ -17,7 +18,7 @@ class History extends React.Component {
     super(props);
     this.state = {
       historyArr: [],
-      currDetails: props.history ? props.history[0] : null,
+      currDetails: props.history ? props.history[0] : {},
       selectedIndex: props.history && props.history.length ? 0 : null,
       redirect: false,
     };

@@ -1,12 +1,11 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import History from './components/History';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import Form from './components/Form';
-import Results from './components/Results';
-import MiniHistory from './components/MiniHistory';
-import './styles.scss';
+import History from './components/History/History';
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
+import Form from './components/Form/Form';
+import Results from './components/Results/Results';
+import MiniHistory from './components/History/MiniHistory';
 
 /**
  * Parent component that returns the header, core content, and footer
@@ -70,7 +69,7 @@ class App extends React.Component {
           }
           /*eslint-disable no-unused-vars*/
 
-          this.setState({
+          await this.setState({
             results: jsonRes.results || jsonRes,
             count: jsonRes.count || 1,
             headers: newHeaders,
@@ -84,14 +83,14 @@ class App extends React.Component {
             headers: this.state.headers,
             results: this.state.results,
             count: this.state.count,
-            url: this.state.url,
+            url: baseURL,
             reqType: this.state.reqType,
           };
 
           // this.state.history.push(currOutput);
           this.updateHistory(currOutput);
 
-          await this.setState({
+          this.setState({
             output: currOutput,
           });
         }
@@ -106,10 +105,10 @@ class App extends React.Component {
                 message: e.message,
               };
 
-        errorOutput.url = this.state.url;
+        errorOutput.url = baseURL;
         errorOutput.reqType = this.state.reqType;
 
-        await this.setState({
+        this.setState({
           output: errorOutput,
         });
 

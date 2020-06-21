@@ -2,6 +2,9 @@ $spacing: 1em;
 $pxPad: 20px;
 $contentHeight: 77vh;
 $darkGreen: #006666;
+$darkBlue: #004680;
+$hoverGray: #3f6181;
+$teal: #007a99;
 
 @mixin setSpacing($marginProp, $paddingProp) {
   margin: $marginProp;
@@ -41,55 +44,6 @@ body {
   min-height: 100%;
 }
 
-header,
-footer {
-  text-align: center;
-  * {
-    color: white;
-  }
-}
-
-header {
-  margin-top: 0px;
-  padding: $spacing / 2;
-  background-color: $darkGreen;
-
-  nav {
-    ul {
-      list-style-type: none;
-      padding: 0;
-
-      li {
-        text-decoration: none;
-        display: inline-block;
-        font-size: 18px;
-
-        a {
-          margin: $spacing;
-          text-decoration: none;
-        }
-      }
-    }
-  }
-}
-
-footer {
-  padding: $spacing * 1.25;
-  background-color: #007a99;
-
-  svg {
-    margin: auto $spacing;
-  }
-
-  a:visited {
-    color: white;
-  }
-}
-
-.content {
-  min-height: $contentHeight;
-}
-
 .flex-row {
   display: flex;
   flex-direction: row;
@@ -122,4 +76,18 @@ footer {
 
 .white {
   color: white;
+}
+
+.submit-btn {
+  background-color: $darkGreen;
+
+  color: #ffff;
+  &:hover {
+    background-color: #337a9b;
+    color: #ffff;
+  }
+}
+
+.content {
+  box-sizing: border-box;
 }

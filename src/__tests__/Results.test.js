@@ -1,10 +1,10 @@
 import React from 'react';
 import { render, mount } from 'enzyme';
-import Results from '../components/Results';
+import Results from '../components/results/Results';
 
 describe('results component', () => {
   it('is empty by default', () => {
-    const component = render(<Results />);
+    const component = render(<Results output={null} />);
     expect(component.html()).toBeFalsy();
   });
 

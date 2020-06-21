@@ -1,6 +1,7 @@
 import React from 'react';
-import LoadingSpinner from '../components/LoadingSpinner';
-import If from './If';
+import LoadingSpinner from './LoadingSpinner';
+import If from '../if/If';
+import './results.scss';
 
 /**
  * Component that returns the results from the API fetch. Uses JSON.stringify instead of my crummy recursion
@@ -11,16 +12,11 @@ function Results(props) {
   const resContent = (
     <If
       condition={
-        props &&
-        props.output &&
-        Object.keys(props.output).length &&
-        !props.loading
+        props.output && Object.keys(props.output).length && !props.loading
       }
     >
       <pre
-        className={
-          props && props.output && props.output.error ? 'error' : 'normal-res'
-        }
+        className={props.output && props.output.error ? 'error' : 'normal-res'}
       >
         {JSON.stringify(props.output, null, 2)}
       </pre>
@@ -28,9 +24,11 @@ function Results(props) {
   );
 
   return (
-    <div className="results">
-      {props.loading ? <LoadingSpinner /> : resContent}
-    </div>
+    <If condition={props}>
+      <div className="results">
+        {props.loading ? <LoadingSpinner /> : resContent}
+      </div>
+    </If>
   );
 }
 

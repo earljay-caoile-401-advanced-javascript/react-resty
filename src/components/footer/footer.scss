@@ -1,0 +1,23 @@
+@import '../../base';
+
+footer {
+  text-align: center;
+  * {
+    color: white;
+  }
+
+  padding: $spacing * 1.25;
+  background-color: $teal;
+
+  svg {
+    margin: auto $spacing;
+  }
+
+  a:visited {
+    color: white;
+  }
+}
+
+.content {
+  min-height: $contentHeight;
+}

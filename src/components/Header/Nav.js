@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './header.scss';
 
 /**
  * Component that returns the nav bar that links to both the home and history pages
