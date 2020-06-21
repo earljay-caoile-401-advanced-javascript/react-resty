@@ -60,6 +60,7 @@ class History extends React.Component {
             showFetchDetails={this.showFetchDetails.bind(this)}
             onSubmit={this.handleSubmit.bind(this)}
             selectedIndex={this.state.selectedIndex}
+            selectFirst={true}
           />
           <Results className="results" output={this.state.currDetails} />
         </div>

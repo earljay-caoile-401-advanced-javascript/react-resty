@@ -44,9 +44,13 @@ function Form(props) {
    * @return  {void}
    */
   function handleBtnClick(e) {
-    const prevSelected = document.querySelector('.selected-btn');
-    prevSelected.classList.remove('selected-btn');
-    e.target.classList.add('selected-btn');
+    const prevSelected = document.querySelector('.selected-req');
+
+    if (prevSelected) {
+      prevSelected.classList.remove('selected-req');
+    }
+
+    e.target.classList.add('selected-req');
     props.onClick(e.target.value);
   }
 
@@ -57,7 +61,7 @@ function Form(props) {
           <div className="req-type">
             <button
               value="GET"
-              className="selected-btn"
+              className="selected-req"
               id="get-btn"
               onClick={handleBtnClick}
             >

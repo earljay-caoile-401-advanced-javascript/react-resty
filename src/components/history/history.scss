@@ -30,6 +30,12 @@
         // @include setCompatibleProp('animation', fadein ease 0.25s);
       }
     }
+
+    .selected-history,
+    .selected-history:hover {
+      color: white;
+      background-color: $darkBlue;
+    }
   }
 
   button {

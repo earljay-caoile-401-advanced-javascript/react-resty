@@ -14,7 +14,12 @@ function MiniHistory(props) {
   for (let i = 0; i < props.history.length; i++) {
     const currHistory = props.history[i];
     historyArr.push(
-      <li key={i} value={i} onClick={updateActiveIndex}>
+      <li
+        key={i}
+        value={i}
+        className={i === 0 && props.selectFirst ? 'selected-history' : null}
+        onClick={updateActiveIndex}
+      >
         {currHistory.reqType} {currHistory.url}
       </li>
     );
@@ -26,13 +31,13 @@ function MiniHistory(props) {
    * @return  {void}
    */
   function updateActiveIndex(e) {
-    const prevSelected = document.querySelector('.selected-btn');
+    const prevSelected = document.querySelector('.selected-history');
 
     if (prevSelected) {
-      prevSelected.classList.remove('selected-btn');
+      prevSelected.classList.remove('selected-history');
     }
 
-    e.target.classList.add('selected-btn');
+    e.target.classList.add('selected-history');
     selectedIndex = e.target.value;
 
     if (props.showFetchDetails) {
@@ -46,11 +51,12 @@ function MiniHistory(props) {
    * @return  {void}
    */
   function handleSubmit() {
-    if (selectedIndex !== null) {
-      const prevSelected = document.querySelector('.selected-btn');
-
+    console.log('What is selectedIndex here?', selectedIndex);
+    if (selectedIndex !== null && selectedIndex !== undefined) {
+      const prevSelected = document.querySelector('selected-history');
+      console.log(prevSelected);
       if (prevSelected) {
-        prevSelected.classList.remove('selected-btn');
+        prevSelected.classList.remove('selected-history');
       }
       props.onSubmit(selectedIndex);
     }
