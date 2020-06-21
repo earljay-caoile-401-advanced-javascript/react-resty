@@ -10,6 +10,10 @@
   h3 {
     text-align: center;
     margin: $spacing / 2 auto;
+
+    @media only screen and (max-width: 900px) {
+      margin: $spacing * 1.25;
+    }
   }
 
   ul {
@@ -27,7 +31,6 @@
       &:hover {
         background-color: $teal;
         color: white;
-        // @include setCompatibleProp('animation', fadein ease 0.25s);
       }
     }
 

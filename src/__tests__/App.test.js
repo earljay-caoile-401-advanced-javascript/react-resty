@@ -70,7 +70,7 @@ describe('App component', () => {
 
   it('can change reqType state on click', () => {
     const component = mount(<App />, { attachTo: document.body });
-    const selectedBtn = component.find('button.selected-btn');
+    const selectedBtn = component.find('button.selected-req');
     const getBtn = component.find('button#get-btn');
     const postBtn = component.find('button#post-btn');
     expect(selectedBtn).toMatchObject(getBtn);
@@ -88,7 +88,7 @@ describe('App component', () => {
 
     postBtn.simulate('click', mockPostObj);
     expect(component.find('button.selected-btn')).not.toMatchObject(getBtn);
-    expect(mockPostObj.class).toBe('selected-btn');
+    expect(mockPostObj.class).toBe('selected-req');
     expect(component.state('reqType')).toBe('POST');
   });
 });

@@ -28,8 +28,17 @@
     }
 
     @media only screen and (max-width: 900px) {
+      button {
+        width: 96%;
+      }
+
       textarea {
         @include setSpacing($spacing / 2 auto, $spacing);
+      }
+
+      label {
+        display: block;
+        text-align: center;
       }
     }
   }
@@ -76,7 +85,7 @@
     }
 
     input.url-textbox {
-      width: 92.5%;
+      width: 96%;
     }
 
     #submit-btn {
