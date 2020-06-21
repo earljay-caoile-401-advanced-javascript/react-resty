@@ -1,6 +1,11 @@
 import React from 'react';
-// import { BrowserRouter, Link } from 'react-router-dom';
 
+/**
+ * Component that returns a list of fetched api calls
+ * @param   {object} props typical React props. Expects a history property
+ * (array) and a selectedIndex property (number)
+ * @return  {object}  JSX content to be rendered
+ */
 function MiniHistory(props) {
   const historyArr = [];
   let selectedIndex = props.selectedIndex;
@@ -19,6 +24,11 @@ function MiniHistory(props) {
     );
   }
 
+  /**
+   * function that works as a event listener for a mouse click on a list item
+   * @param   {object} e event listener object
+   * @return  {void}
+   */
   function updateActiveIndex(e) {
     const prevSelected = document.querySelector('.selected-btn');
 
@@ -34,7 +44,13 @@ function MiniHistory(props) {
     }
   }
 
+  /**
+   * function that works as a event listener for a mouse click on the re-fetch button
+   * @param   {object} e event listener object
+   * @return  {void}
+   */
   function handleSubmit() {
+    console.log('selectedIndex at top of handleSubmit?', selectedIndex);
     if (selectedIndex !== null) {
       const prevSelected = document.querySelector('.selected-btn');
 
@@ -49,7 +65,7 @@ function MiniHistory(props) {
     <div className="mini-history">
       <h3>History</h3>
       <ul className="history-list">{historyArr}</ul>
-      <button id="submit-btn" value={selectedIndex} onClick={handleSubmit}>
+      <button id="submit-btn" onClick={handleSubmit}>
         Re-Fetch
       </button>
     </div>

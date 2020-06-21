@@ -2,6 +2,7 @@ import React from 'react';
 import MiniHistory from './MiniHistory';
 import { Redirect } from 'react-router-dom';
 import Results from './Results';
+
 /**
  * Parent component that shows history of API requests
  *
@@ -17,11 +18,16 @@ class History extends React.Component {
     this.state = {
       historyArr: [],
       currDetails: props.history ? props.history[0] : null,
-      selectedIndex: null,
+      selectedIndex: props.history && props.history.length ? 0 : null,
       redirect: false,
     };
   }
 
+  /**
+   * helper function that with the onClick event handler from MiniHistory to deploy fetch details
+   * @param   {object} e event listener object
+   * @return  {void}
+   */
   async showFetchDetails(index) {
     await this.setState({
       currDetails: this.props.history[index],
@@ -29,9 +35,15 @@ class History extends React.Component {
     });
   }
 
-  async handleSubmit() {
+  /**
+   * helper function that works with the re-fetch button from MiniHistory to re-fetch a
+   * previous request
+   * @param   {object} e event listener object
+   * @return  {void}
+   */
+  async handleSubmit(index) {
     await this.setState({ redirect: true });
-    await this.props.fetchPrevReq(this.state.selectedIndex);
+    await this.props.fetchPrevReq(index);
   }
 
   render() {

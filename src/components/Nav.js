@@ -1,6 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+/**
+ * Component that returns the nav bar that links to both the home and history pages
+ * @param   {object} props typical React props. Expects a links property
+ * @return  {object}  JSX content to be rendered
+ */
 function Nav(props) {
   const navLinks = [];
 

@@ -7,7 +7,7 @@ import React from 'react';
  */
 function Form(props) {
   /**
-   * helper function that works as an event listener for a change in input text
+   * helper function that works as an event listener for a change in input text fir url
    * @param   {object} e event listener object
    * @return  {void}
    */
@@ -15,6 +15,12 @@ function Form(props) {
     props.onChange(e.target.value);
   }
 
+  /**
+   * helper function that works as an event listener for a change in textarea text
+   * for request body
+   * @param   {object} e event listener object
+   * @return  {void}
+   */
   function handleReqBodyChange(e) {
     props.onReqBoxChange(e.target.value);
   }
