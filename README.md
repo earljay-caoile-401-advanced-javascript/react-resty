@@ -2,7 +2,7 @@
 
 ## React Web App Mimicking Postman
 
-Lab 23 and then some for CF JS 401 Nights
+Lab 23 and 24 for CF JS 401 Nights
 
 ### Author: Earl Jay Caoile
 

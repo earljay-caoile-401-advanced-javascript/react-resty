@@ -18,7 +18,7 @@ class History extends React.Component {
     super(props);
     this.state = {
       historyArr: [],
-      currDetails: props.history ? props.history[0] : {},
+      currDetails: props.history && props.history.length ? props.history[0] : {},
       selectedIndex: props.history && props.history.length ? 0 : null,
       redirect: false,
     };

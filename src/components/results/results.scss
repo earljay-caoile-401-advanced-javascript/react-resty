@@ -12,6 +12,10 @@
     overflow: auto;
   }
 
+  h3 {
+    margin: $spacing;
+  }
+
   pre {
     font-size: 16px;
     height: $contentHeight - 28vh; // 61vh

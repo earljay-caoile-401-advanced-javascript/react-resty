@@ -9,26 +9,23 @@ import './results.scss';
  * @return  {object}  JSX content to be rendered
  */
 function Results(props) {
-  const resContent = (
-    <If
-      condition={
-        props.output && Object.keys(props.output).length && !props.loading
-      }
-    >
+  const resContent =
+    props.output && Object.keys(props.output).length ? (
       <pre
         className={props.output && props.output.error ? 'error' : 'normal-res'}
       >
         {JSON.stringify(props.output, null, 2)}
       </pre>
-    </If>
-  );
+    ) : (
+      <h3>Please submit an API request to see the results here.</h3>
+    );
 
   return (
-    <If condition={props}>
-      <div className="results">
+    <div className="results">
+      <If condition={props}>
         {props.loading ? <LoadingSpinner /> : resContent}
-      </div>
-    </If>
+      </If>
+    </div>
   );
 }
 

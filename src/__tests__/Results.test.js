@@ -5,7 +5,9 @@ import Results from '../components/results/Results';
 describe('results component', () => {
   it('is empty by default', () => {
     const component = render(<Results output={null} />);
-    expect(component.html()).toBeFalsy();
+    expect(component.text()).toBe(
+      'Please submit an API request to see the results here.'
+    );
   });
 
   it('can populate html with output props', () => {
