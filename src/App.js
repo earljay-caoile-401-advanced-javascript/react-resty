@@ -36,7 +36,8 @@ class App extends React.Component {
   }
 
   /**
-   * helper function that updates states on user submission (button click or enter key)
+   * function that fetches an API request based on state valeus. Used in both form fetch as well as prev req
+   * click fetch
    * @return  {void}
    */
   async apiFetch() {
@@ -47,21 +48,15 @@ class App extends React.Component {
           loading: true,
         });
 
-        console.log(
-          'What is reqBody at the top of apiFetch?',
-          this.state.reqBody
-        );
         const res = await fetch(baseURL, {
           method: this.state.reqType,
           headers: {
             'Content-Type': 'application/json',
           },
           body:
-            this.state.reqType === 'POST' ||
-            this.state.reqType === 'PUT' ||
-            this.state.reqType === 'PATCH'
-              ? JSON.stringify(JSON.parse(this.state.reqBody))
-              : null,
+            this.state.reqType === 'GET' || this.state.reqType === 'DELETE'
+              ? null
+              : JSON.stringify(JSON.parse(this.state.reqBody)),
         });
 
         if (res) {
@@ -93,7 +88,6 @@ class App extends React.Component {
             reqBody: this.state.reqBody,
           };
 
-          // this.state.history.push(currOutput);
           this.updateHistory(currOutput);
 
           this.setState({
@@ -159,7 +153,7 @@ class App extends React.Component {
    */
   async fetchPrevReq(index) {
     const prevReq = this.state.history[index];
-    console.log('What is preReq at top of fetchPrevReq?', prevReq);
+
     if (prevReq) {
       await this.setState({
         url: prevReq.url,
@@ -171,13 +165,19 @@ class App extends React.Component {
     }
   }
 
+  /**
+   * function that runs arequest based on the current form values. It calls the apiFetch function
+   * after updating state
+   * @param   {string} reqType value of the currently selected req type button
+   * @param   {object} reqBody value of the string passed into the req body textarea element
+   * @return  {void}
+   */
   async fetchWithForm(reqType, reqBody) {
     await this.setState({
       reqType,
       reqBody: reqType === 'GET' || reqType === 'DELETE' ? null : reqBody,
     });
 
-    console.log('Did we get reqType and reqBody?', reqType, reqBody);
     await this.apiFetch();
   }
 
