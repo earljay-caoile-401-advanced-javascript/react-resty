@@ -65,7 +65,7 @@ function MiniHistory(props) {
   return (
     <If condition={props}>
       <div className="mini-history">
-        <h3>History</h3>
+        <h3>Previous Requests</h3>
         <ul className="history-list">{historyArr}</ul>
         <button className="submit-btn" onClick={handleSubmit}>
           Re-Fetch

@@ -52,8 +52,7 @@ class History extends React.Component {
       <Redirect push to="/" />
     ) : (
       <div className="content" id="history">
-        <h2>API Fetch History</h2>
-        <p></p>
+        <h2>Detailed API Fetch History</h2>
         <div className="big-history flex-row">
           <MiniHistory
             history={this.props.history || []}
