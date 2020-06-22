@@ -34,7 +34,9 @@ function Form(props) {
    */
   function handleSubmit(e) {
     if (e.key === 'Enter' || (e.target && e.target.value === 'Submit')) {
-      props.onSubmit();
+      const selectedReq = document.querySelector('.selected-req');
+      const textbox = document.querySelector('.reqBody-textbox');
+      props.onSubmit(selectedReq.value, textbox.value);
     }
   }
 

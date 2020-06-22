@@ -52,6 +52,7 @@ function MiniHistory(props) {
    */
   function handleSubmit() {
     console.log('What is selectedIndex here?', selectedIndex);
+    console.log('respective object?', historyArr[selectedIndex]);
     if (selectedIndex !== null && selectedIndex !== undefined) {
       const prevSelected = document.querySelector('selected-history');
       console.log(prevSelected);

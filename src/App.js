@@ -47,6 +47,10 @@ class App extends React.Component {
           loading: true,
         });
 
+        console.log(
+          'What is reqBody at the top of apiFetch?',
+          this.state.reqBody
+        );
         const res = await fetch(baseURL, {
           method: this.state.reqType,
           headers: {
@@ -86,6 +90,7 @@ class App extends React.Component {
             count: this.state.count,
             url: baseURL,
             reqType: this.state.reqType,
+            reqBody: this.state.reqBody,
           };
 
           // this.state.history.push(currOutput);
@@ -154,6 +159,7 @@ class App extends React.Component {
    */
   async fetchPrevReq(index) {
     const prevReq = this.state.history[index];
+    console.log('What is preReq at top of fetchPrevReq?', prevReq);
     if (prevReq) {
       await this.setState({
         url: prevReq.url,
@@ -163,6 +169,16 @@ class App extends React.Component {
 
       await this.apiFetch();
     }
+  }
+
+  async fetchWithForm(reqType, reqBody) {
+    await this.setState({
+      reqType,
+      reqBody: reqType === 'GET' || reqType === 'DELETE' ? null : reqBody,
+    });
+
+    console.log('Did we get reqType and reqBody?', reqType, reqBody);
+    await this.apiFetch();
   }
 
   /**
@@ -201,7 +217,7 @@ class App extends React.Component {
                   stateKey="url"
                   onChange={this.updateURL.bind(this)}
                   onReqBoxChange={this.updateReqBody.bind(this)}
-                  onSubmit={this.apiFetch.bind(this)}
+                  onSubmit={this.fetchWithForm.bind(this)}
                   onClick={this.updateReqType.bind(this)}
                 />
                 <div className="res-and-history flex-row">

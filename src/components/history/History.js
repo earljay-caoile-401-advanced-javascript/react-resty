@@ -18,7 +18,7 @@ class History extends React.Component {
     super(props);
     this.state = {
       historyArr: [],
-      currDetails: props.history && props.history.length ? props.history[0] : {},
+      currDetails: props.history || {},
       selectedIndex: props.history && props.history.length ? 0 : null,
       redirect: false,
     };
@@ -55,7 +55,7 @@ class History extends React.Component {
         <h2>Detailed API Fetch History</h2>
         <div className="big-history flex-row">
           <MiniHistory
-            history={this.props.history || []}
+            history={this.props.history}
             showFetchDetails={this.showFetchDetails.bind(this)}
             onSubmit={this.handleSubmit.bind(this)}
             selectedIndex={this.state.selectedIndex}
