@@ -3,6 +3,7 @@
 .results {
   border-style: solid;
   height: $contentHeight - 25.5vh; // 63.5vh;
+  // height: $contentHeight - 2.5vh; // 63.5vh;
   @include setSpacing($spacing, $spacing / 2);
   width: 72.5%;
   background-color: white;

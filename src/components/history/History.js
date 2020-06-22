@@ -61,7 +61,7 @@ class History extends React.Component {
             selectedIndex={this.state.selectedIndex}
             selectFirst={true}
           />
-          <Results className="results" output={this.state.currDetails} />
+          <Results output={this.state.currDetails} detailed={true} />
         </div>
       </div>
     );
