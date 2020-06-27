@@ -1,15 +1,97 @@
 $spacing: 1em;
 $pxPad: 20px;
+$contentHeight: 77vh;
+$darkGreen: #006666;
+$darkBlue: #004680;
+$hoverGray: #3f6181;
+$teal: #007a99;
+
+@mixin setSpacing($marginProp, $paddingProp) {
+  margin: $marginProp;
+  padding: $paddingProp;
+}
+
+@mixin setCompatibleProp($prop, $val) {
+  #{$prop}: $val;
+  -webkit-#{$prop}: $val;
+  -moz-#{$prop}: $val;
+  -ms-#{$prop}: $val;
+  -o-#{$prop}: $val;
+}
+
+HTML,
+body {
+  width: 100%;
+}
+
+HTML {
+  background-image: url('./assets/book.jpg');
+  height: 100%;
+  position: relative;
+  background-size: cover;
+}
+
+body {
+  min-height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  background: rgba(255, 255, 255, 0.6);
+}
 
 #root {
   font-family: Arial;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  background-color: #ffffff;
+  min-height: 100%;
 }
 
-@mixin setSpacing($marginProp, $paddingProp) {
-  margin: $marginProp;
-  padding: $paddingProp;
+.flex-row {
+  display: flex;
+  flex-direction: row;
+
+  @media only screen and (max-width: 900px) {
+    display: block;
+  }
+
+  margin: $spacing * 2;
+}
+
+.content,
+.big-history,
+.mini-history,
+.results,
+.res-and-history {
+  margin: $spacing;
+  @media only screen and (max-width: 900px) {
+    margin: 1em auto;
+  }
+}
+
+.error {
+  color: red;
+}
+
+.white {
+  color: white;
+}
+
+.submit-btn {
+  background-color: $darkGreen;
+
+  color: #ffff;
+  &:hover {
+    background-color: #337a9b;
+    color: #ffff;
+  }
+}
+
+.content {
+  min-height: $contentHeight;
+  margin-bottom: 2.5rem;
+}
+
+.zero-opacity {
+  opacity: 0;
 }

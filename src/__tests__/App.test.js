@@ -1,11 +1,11 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import RESTy from '../components/RESTy';
+import App from '../App';
 
-describe('resty component', () => {
+describe('App component', () => {
   it('updates the state correctly when we type into the input field and sends props to form component', async () => {
-    const component = mount(<RESTy />);
-    const inputTextbox = component.find('input.textbox');
+    const component = mount(<App />);
+    const inputTextbox = component.find('input.url-textbox');
     expect(inputTextbox.text()).toBe('');
     expect(component.state('url')).toBe('');
 
@@ -21,9 +21,9 @@ describe('resty component', () => {
     );
   });
 
-  it('can display the data in the results component when state in RESTy is updated', () => {
-    const component = mount(<RESTy />);
-    expect(component.find('div.result-root-0')).toHaveLength(0);
+  it('can display the data in the results component when state in App is updated', () => {
+    const component = mount(<App />);
+    expect(component.find('pre')).toHaveLength(0);
 
     const mockedState = {
       headers: 'content-type: application/json; charset=utf-8,',
@@ -64,13 +64,13 @@ describe('resty component', () => {
     };
 
     component.setState(mockedState);
-    expect(component.find('div.result-root-0')).toHaveLength(1);
-    expect(component.find('div.result-root-0').html()).toBeDefined();
+    expect(component.find('pre')).toHaveLength(1);
+    expect(component.find('pre').html()).toBeDefined();
   });
 
   it('can change reqType state on click', () => {
-    const component = mount(<RESTy />, { attachTo: document.body });
-    const selectedBtn = component.find('button.selected-btn');
+    const component = mount(<App />, { attachTo: document.body });
+    const selectedBtn = component.find('button.selected-req');
     const getBtn = component.find('button#get-btn');
     const postBtn = component.find('button#post-btn');
     expect(selectedBtn).toMatchObject(getBtn);
@@ -88,7 +88,7 @@ describe('resty component', () => {
 
     postBtn.simulate('click', mockPostObj);
     expect(component.find('button.selected-btn')).not.toMatchObject(getBtn);
-    expect(mockPostObj.class).toBe('selected-btn');
+    expect(mockPostObj.class).toBe('selected-req');
     expect(component.state('reqType')).toBe('POST');
   });
 });

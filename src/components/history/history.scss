@@ -1,0 +1,75 @@
+@import '../../base';
+
+#history {
+  h2 {
+    text-align: center;
+  }
+}
+
+.mini-history {
+  width: 23vw;
+
+  @media only screen and (max-width: 900px) {
+    width: 96%;
+  }
+
+  h3 {
+    text-align: center;
+    margin: $spacing / 2 auto;
+
+    @media only screen and (max-width: 900px) {
+      margin: $spacing * 1.25;
+    }
+  }
+
+  ul {
+    @include setSpacing(0, 0);
+    overflow: auto;
+    height: 40vh;
+
+    li {
+      list-style-type: none;
+      padding: $spacing;
+      border: 2px solid;
+      margin: 0;
+      background-color: white;
+      overflow: auto;
+      // width: 20vw;
+
+      &:hover {
+        background-color: $teal;
+        color: white;
+      }
+    }
+
+    .selected-history,
+    .selected-history:hover {
+      color: white;
+      background-color: $darkBlue;
+    }
+  }
+
+  button {
+    @include setSpacing($spacing * 2 auto, $spacing);
+    width: 93%;
+
+    @media only screen and (max-width: 900px) {
+      width: 100%;
+      text-align: center;
+    }
+  }
+}
+
+$bigRes: 70vh;
+.big-history {
+  .results {
+    min-height: $bigRes;
+    pre {
+      height: $bigRes - 3vh;
+    }
+  }
+}
+
+// #history {
+//   margin-bottom: 2.5vh;
+// }

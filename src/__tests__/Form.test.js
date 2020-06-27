@@ -1,18 +1,18 @@
 import React from 'react';
 import { render } from 'enzyme';
-import Form from '../components/Form';
+import Form from '../components/form/Form';
 
 describe('form component', () => {
   it('properly displays the html', () => {
     const component = render(<Form />);
-    const selectedBtn = component.find('button.selected-btn');
+    const selectedBtn = component.find('button.selected-req');
     const getBtn = component.find('button#get-btn');
     const postBtn = component.find('button#post-btn');
     const putBtn = component.find('button#put-btn');
     const patchBtn = component.find('button#patch-btn');
     const deleteBtn = component.find('button#delete-btn');
-    const inputBox = component.find('input.textbox');
-    const submitBtn = component.find('button#submit-btn');
+    const inputBox = component.find('input.url-textbox');
+    const submitBtn = component.find('button.submit-btn');
 
     expect(selectedBtn.text()).toBe('GET');
     expect(selectedBtn).toMatchObject(getBtn);
